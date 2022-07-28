@@ -1,0 +1,2 @@
+# SolutionPlatformApp
+Solution for Errors
