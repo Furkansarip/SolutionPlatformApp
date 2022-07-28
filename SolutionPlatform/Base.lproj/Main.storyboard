@@ -11,7 +11,7 @@
         <!--Hata Paylaşım-->
         <scene sceneID="ZR5-OM-fnf">
             <objects>
-                <viewController id="mpd-t5-b0I" customClass="ViewController" customModule="SolutionPlatformApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mpd-t5-b0I" customClass="ViewController" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQG-Ru-cfE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,6 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Hata Paylaşım" id="qz9-Nh-WSg"/>
                     <connections>
+                        <outlet property="entryTableView" destination="8tv-WD-w0u" id="gR8-h5-lKd"/>
                         <segue destination="p4B-MJ-u4v" kind="show" identifier="createEntry" id="G7v-hL-Nae"/>
                         <segue destination="60A-UT-XeG" kind="show" identifier="registerPage" id="c5x-gP-zbH"/>
                         <segue destination="X9k-fE-lLi" kind="show" identifier="loginPage" id="WnG-i0-bvL"/>
@@ -81,7 +82,7 @@
         <!--EntryVC-->
         <scene sceneID="Pq2-uj-r8i">
             <objects>
-                <viewController id="p4B-MJ-u4v" customClass="EntryVC" customModule="SolutionPlatformApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p4B-MJ-u4v" customClass="EntryVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Prp-bv-iAM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,7 +183,7 @@
         <!--Kayıt Sayfası-->
         <scene sceneID="PZ9-bE-vQ4">
             <objects>
-                <viewController id="60A-UT-XeG" customClass="RegisterVC" customModule="SolutionPlatformApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="60A-UT-XeG" customClass="RegisterVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rxl-6W-Ywx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,7 +227,7 @@
         <!--LoginVC-->
         <scene sceneID="7XC-U6-Cyn">
             <objects>
-                <viewController id="X9k-fE-lLi" customClass="LoginVC" customModule="SolutionPlatformApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X9k-fE-lLi" customClass="LoginVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gqm-u5-0kC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +274,7 @@
         <!--DetailVC-->
         <scene sceneID="85j-Zc-oSd">
             <objects>
-                <viewController id="FgU-Rs-9BO" customClass="DetailVC" customModule="SolutionPlatformApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FgU-Rs-9BO" customClass="DetailVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ieu-8M-tQK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,7 +377,7 @@
         <!--ProfileVC-->
         <scene sceneID="pna-eR-SAh">
             <objects>
-                <viewController id="jDO-WM-opZ" customClass="ProfileVC" customModule="SolutionPlatformApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jDO-WM-opZ" customClass="ProfileVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Urv-W1-nek">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
