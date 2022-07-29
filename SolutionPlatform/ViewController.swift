@@ -28,7 +28,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             APIFunctions.functions.delegate = self
             APIFunctions.functions.fetchEntry()
             filteredData = newEntryArray
-            print(filteredData)
+           // print(filteredData)
             entryTableView.dataSource = self
             entryTableView.delegate = self
             searchBar.delegate = self
@@ -94,7 +94,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "registerPage", sender: nil)
     }
     @objc func loginPage(){
-        performSegue(withIdentifier: "loginPage", sender: nil)
+        performSegue(withIdentifier: "adminPage", sender: nil)
     }
     @objc func profilePage(){
         performSegue(withIdentifier: "profilePage", sender: nil)
@@ -110,7 +110,7 @@ extension ViewController : DataDelegate {
             for i in entryArray {
                 if i.isActive == true {
                     newEntryArray.append(i)
-                    print(newEntryArray)
+                    //print(newEntryArray)
                 }
             }
             //print(entryArray)

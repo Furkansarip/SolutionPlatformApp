@@ -56,6 +56,7 @@
                         <segue destination="X9k-fE-lLi" kind="show" identifier="loginPage" id="WnG-i0-bvL"/>
                         <segue destination="FgU-Rs-9BO" kind="show" identifier="entryDetail" id="xMy-ay-vyI"/>
                         <segue destination="jDO-WM-opZ" kind="show" identifier="profilePage" id="ym3-lW-a98"/>
+                        <segue destination="guN-zk-tQ2" kind="show" identifier="adminPage" id="GYk-uJ-J6k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKV-2U-QfP" sceneMemberID="firstResponder"/>
@@ -165,21 +166,117 @@
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="543.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Onay Bekleyenler-->
         <scene sceneID="uA7-50-buI">
             <objects>
-                <viewController id="guN-zk-tQ2" sceneMemberID="viewController">
+                <viewController id="guN-zk-tQ2" customClass="AdminVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tz2-5G-cHo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7DM-3x-wV5">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0q4-ED-cuR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0q4-ED-cuR" firstAttribute="bottom" secondItem="7DM-3x-wV5" secondAttribute="bottom" id="4Vp-cn-pgw"/>
+                            <constraint firstItem="7DM-3x-wV5" firstAttribute="leading" secondItem="0q4-ED-cuR" secondAttribute="leading" id="Bxw-E6-6cD"/>
+                            <constraint firstItem="7DM-3x-wV5" firstAttribute="leading" secondItem="0q4-ED-cuR" secondAttribute="leading" id="DA1-ko-OXH"/>
+                            <constraint firstItem="7DM-3x-wV5" firstAttribute="top" secondItem="0q4-ED-cuR" secondAttribute="top" id="GsD-iE-3Fg"/>
+                            <constraint firstItem="0q4-ED-cuR" firstAttribute="bottom" secondItem="7DM-3x-wV5" secondAttribute="bottom" id="OnJ-Bk-QOm"/>
+                            <constraint firstItem="7DM-3x-wV5" firstAttribute="top" secondItem="0q4-ED-cuR" secondAttribute="top" id="RhC-CY-e7h"/>
+                            <constraint firstItem="0q4-ED-cuR" firstAttribute="trailing" secondItem="7DM-3x-wV5" secondAttribute="trailing" id="ln3-go-B6b"/>
+                            <constraint firstItem="0q4-ED-cuR" firstAttribute="trailing" secondItem="7DM-3x-wV5" secondAttribute="trailing" id="mGV-EL-817"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pS0-NS-WHJ"/>
+                    <navigationItem key="navigationItem" title="Onay Bekleyenler" id="pS0-NS-WHJ"/>
+                    <connections>
+                        <outlet property="falseTableView" destination="7DM-3x-wV5" id="tYK-JP-XHG"/>
+                        <segue destination="xIE-hj-adF" kind="show" identifier="adminApply" id="sm8-pj-oHq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciT-te-LUO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="1492"/>
+            <point key="canvasLocation" x="951" y="1505"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rfR-gw-Ppp">
+            <objects>
+                <viewController id="xIE-hj-adF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SFM-26-UFy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Başlık" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gks-Tn-ciP">
+                                <rect key="frame" x="30" y="118" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8NK-hd-v2I">
+                                <rect key="frame" x="30" y="182" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Çözüm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wxz-Hv-HZj">
+                                <rect key="frame" x="30" y="246" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kategori" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Nj-hQ-hcq">
+                                <rect key="frame" x="30" y="310" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Etiketler" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elR-sI-IxS">
+                                <rect key="frame" x="30" y="374" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı Maili" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RjG-qB-Q05">
+                                <rect key="frame" x="30" y="438" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jv7-I5-xxJ">
+                                <rect key="frame" x="10" y="532" width="394" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Onayla"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Kx4-2A-7yJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="6Nj-hQ-hcq" secondAttribute="trailing" constant="30" id="05A-0F-mgK"/>
+                            <constraint firstItem="RjG-qB-Q05" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="0sf-tf-HdU"/>
+                            <constraint firstItem="Jv7-I5-xxJ" firstAttribute="top" secondItem="RjG-qB-Q05" secondAttribute="bottom" constant="60" id="24G-ZU-bO1"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="elR-sI-IxS" secondAttribute="trailing" constant="30" id="2fc-Dr-wes"/>
+                            <constraint firstItem="6Nj-hQ-hcq" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="3Un-rR-A3W"/>
+                            <constraint firstItem="RjG-qB-Q05" firstAttribute="top" secondItem="elR-sI-IxS" secondAttribute="bottom" constant="30" id="3dO-Rj-g87"/>
+                            <constraint firstItem="6Nj-hQ-hcq" firstAttribute="top" secondItem="Wxz-Hv-HZj" secondAttribute="bottom" constant="30" id="4SG-rY-5os"/>
+                            <constraint firstItem="Wxz-Hv-HZj" firstAttribute="top" secondItem="8NK-hd-v2I" secondAttribute="bottom" constant="30" id="6mc-7R-kin"/>
+                            <constraint firstItem="elR-sI-IxS" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="9jI-Zv-1Ky"/>
+                            <constraint firstItem="8NK-hd-v2I" firstAttribute="top" secondItem="Gks-Tn-ciP" secondAttribute="bottom" constant="30" id="KGF-FC-rB3"/>
+                            <constraint firstItem="elR-sI-IxS" firstAttribute="top" secondItem="6Nj-hQ-hcq" secondAttribute="bottom" constant="30" id="Noc-bI-rNV"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="Gks-Tn-ciP" secondAttribute="trailing" constant="30" id="R60-v1-QJM"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="Jv7-I5-xxJ" secondAttribute="trailing" constant="10" id="RDw-Cb-wBY"/>
+                            <constraint firstItem="Jv7-I5-xxJ" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="10" id="TBh-qV-NYa"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="8NK-hd-v2I" secondAttribute="trailing" constant="30" id="UMZ-6Z-8nc"/>
+                            <constraint firstItem="Wxz-Hv-HZj" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="e3I-im-Kqf"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="RjG-qB-Q05" secondAttribute="trailing" constant="30" id="iZv-jh-RcS"/>
+                            <constraint firstItem="Gks-Tn-ciP" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="if5-F4-US1"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="Wxz-Hv-HZj" secondAttribute="trailing" constant="30" id="jxL-TV-heI"/>
+                            <constraint firstItem="8NK-hd-v2I" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="o7J-vh-l1b"/>
+                            <constraint firstItem="Gks-Tn-ciP" firstAttribute="top" secondItem="Kx4-2A-7yJ" secondAttribute="top" constant="30" id="p6C-eU-xBe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FEP-Yd-XrP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8f-2l-ae2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768.1159420289857" y="1508.7053571428571"/>
         </scene>
         <!--Kayıt Sayfası-->
         <scene sceneID="PZ9-bE-vQ4">
@@ -265,7 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="68C-M9-XRg"/>
                     <connections>
-                        <segue destination="guN-zk-tQ2" kind="show" id="9Sv-vR-kLQ"/>
+                        <segue destination="guN-zk-tQ2" kind="show" identifier="adminPagev1" id="9Sv-vR-kLQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxc-Qe-QtL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -413,6 +510,9 @@
             <point key="canvasLocation" x="2422" y="80"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GYk-uJ-J6k"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,23 +7,53 @@
 
 import UIKit
 
-class AdminVC: UIViewController {
-
+class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    var allEntryArray = [AllEntry]()
+    var falseArray = [AllEntry]()
+    @IBOutlet weak var falseTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        APIFunctions.functions.delegate = self
+        APIFunctions.functions.fetchEntry()
+        print(falseArray)
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    //MARK: -> TableView
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        falseArray.count
     }
-    */
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cells = UITableViewCell()
+        cells.textLabel?.text = falseArray[indexPath.row].header
+        return cells
+    }
+
+    
+
+}
+
+
+//MARK: -> Extension
+extension AdminVC : DataDelegate{
+    func updateArray(newArray: String) {
+        do{
+            allEntryArray = try JSONDecoder().decode([AllEntry].self, from: newArray.data(using: .utf8)!)
+            
+            for falseData in allEntryArray{
+                if falseData.isActive == false{
+                    falseArray.append(falseData)
+                    print(falseArray)
+
+                }
+            }
+                    }catch{
+            print("Error Admin Page")
+        }
+    }
 }
