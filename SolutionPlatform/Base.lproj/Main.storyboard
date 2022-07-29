@@ -50,6 +50,7 @@
                     <navigationItem key="navigationItem" title="Hata Paylaşım" id="qz9-Nh-WSg"/>
                     <connections>
                         <outlet property="entryTableView" destination="8tv-WD-w0u" id="gR8-h5-lKd"/>
+                        <outlet property="searchBar" destination="Qsv-RW-6bj" id="6ne-aT-AY9"/>
                         <segue destination="p4B-MJ-u4v" kind="show" identifier="createEntry" id="G7v-hL-Nae"/>
                         <segue destination="60A-UT-XeG" kind="show" identifier="registerPage" id="c5x-gP-zbH"/>
                         <segue destination="X9k-fE-lLi" kind="show" identifier="loginPage" id="WnG-i0-bvL"/>

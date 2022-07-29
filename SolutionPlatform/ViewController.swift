@@ -13,25 +13,33 @@ protocol DataDelegate{
     
 }
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     @IBOutlet weak var entryTableView: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var entryArray = [AllEntry]()
+    var newEntryArray = [AllEntry]()
+    var filteredData : [AllEntry]!
         override func viewDidLoad() {
 
         super.viewDidLoad()
         homeNavBar()
             APIFunctions.functions.delegate = self
             APIFunctions.functions.fetchEntry()
-            print(entryArray)
+            filteredData = newEntryArray
+            print(filteredData)
             entryTableView.dataSource = self
             entryTableView.delegate = self
+            searchBar.delegate = self
+           
+            
+            
         //accessNavBar()
     }
 
     
-    
+  
     
     //MARK: -> Navbar functions
     func homeNavBar(){
@@ -46,14 +54,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: -> tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        entryArray.count
+        filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        // let cell = entryTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let cell = UITableViewCell()
-        cell.textLabel?.text = entryArray[indexPath.row].header
+        //if entryArray[indexPath.row].isActive == true {
+            cell.textLabel?.text = filteredData[indexPath.row].header
+      //  }
+        
         return cell
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = []
+        
+        if searchText == "" {
+            filteredData = newEntryArray
+        }
+        
+        else {
+            for errors in newEntryArray
+    {
+                if errors.header.lowercased().contains(searchText.lowercased()){
+                    filteredData.append(errors)
+                }
+            }
+        }
+        self.entryTableView.reloadData()
     }
     
     //MARK: -> objc Func
@@ -72,14 +101,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 }
 
+
+
 extension ViewController : DataDelegate {
     func updateArray(newArray: String) {
         do{
             entryArray = try JSONDecoder().decode([AllEntry].self , from:newArray.data(using: .utf8)!)
-            print(entryArray)
+            for i in entryArray {
+                if i.isActive == true {
+                    newEntryArray.append(i)
+                    print(newEntryArray)
+                }
+            }
+            //print(entryArray)
+            filteredData = newEntryArray
         }
         catch{
-            
+            print("Error")
         }
         self.entryTableView.reloadData()
         
