@@ -32,5 +32,21 @@ class APIFunctions {
             
         }
     }
+    
+    func createEntry(header:String,description:String,solution:String,category:String,tags:String,userId:String){
+        AF.request("http://192.168.1.34:8081/createEntry",method: .post,encoding: URLEncoding.httpBody,headers: ["header":header,"description":description,"solution":solution,"category":category,"tags":tags,"userId":userId]).responseJSON {
+            response in
+            let entryData = String(data: response.data!, encoding: .utf8)
+            response.data?.description.utf8
+        }
+        
+}
+    
+    func updateEntry(id:String,header:String,description:String,solution:String,tags:String,category:String){
+        AF.request("http://192.168.1.34:8081/update",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id,"header":header,"description":description,"solution":solution,"category":category,"tags":tags]).responseJSON {
+            response in
+        }
+        
+    }
 }
 

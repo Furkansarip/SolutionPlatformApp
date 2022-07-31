@@ -17,7 +17,9 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         APIFunctions.functions.delegate = self
         APIFunctions.functions.fetchEntry()
-        print(falseArray)
+       
+        falseTableView.delegate = self
+        falseTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -48,12 +50,13 @@ extension AdminVC : DataDelegate{
             for falseData in allEntryArray{
                 if falseData.isActive == false{
                     falseArray.append(falseData)
-                    print(falseArray)
-
+                    print(falseData._id)
+                    print(falseData.tags)
                 }
             }
                     }catch{
             print("Error Admin Page")
         }
+        self.falseTableView.reloadData()
     }
 }

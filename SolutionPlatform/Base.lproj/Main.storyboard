@@ -131,6 +131,9 @@
                                 <rect key="frame" x="20" y="571" width="374" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Kaydet"/>
+                                <connections>
+                                    <action selector="createEntry:" destination="p4B-MJ-u4v" eventType="touchUpInside" id="UZw-8L-cdv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jHH-Bw-zl2"/>
@@ -161,6 +164,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yYA-Zo-C1n"/>
+                    <connections>
+                        <outlet property="categoryPicker" destination="uk4-su-PP3" id="3LC-EX-Pdg"/>
+                        <outlet property="descriptionTextField" destination="Hln-3H-8vS" id="j7F-6J-E27"/>
+                        <outlet property="headerTextField" destination="V9w-BP-chK" id="izm-gC-06h"/>
+                        <outlet property="solutionTextField" destination="xcq-hC-yg7" id="KXm-Wb-hFa"/>
+                        <outlet property="tagsTextField" destination="4c4-12-nLN" id="XoT-vW-G3W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYc-Da-f3K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,7 +408,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Etiket" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngD-hS-vgN">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kategori" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngD-hS-vgN">
                                 <rect key="frame" x="10" y="415" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -415,7 +425,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etiketler" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cJ-1w-zDg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cJ-1w-zDg">
                                 <rect key="frame" x="10" y="384" width="394" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -428,22 +438,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Etiketler" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0D-XY-L5R">
+                                <rect key="frame" x="10" y="490" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etiketler" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LO-Vg-7Dr">
+                                <rect key="frame" x="10" y="459" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrW-8X-6cP">
+                                <rect key="frame" x="10" y="574" width="394" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Güncelle"/>
+                                <connections>
+                                    <action selector="updateEntry:" destination="FgU-Rs-9BO" eventType="touchUpInside" id="mgE-Qs-wb7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oja-FE-eEu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sBs-3z-X8t" firstAttribute="top" secondItem="6Hf-a7-kRp" secondAttribute="bottom" constant="10" id="06m-72-ZR4"/>
                             <constraint firstItem="6Hf-a7-kRp" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="0Bq-mr-8J5"/>
+                            <constraint firstItem="OrW-8X-6cP" firstAttribute="top" secondItem="I0D-XY-L5R" secondAttribute="bottom" constant="50" id="1iS-eL-qQb"/>
+                            <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="I0D-XY-L5R" secondAttribute="trailing" constant="10" id="1pl-wD-wEi"/>
                             <constraint firstItem="8cJ-1w-zDg" firstAttribute="top" secondItem="w5j-f6-eOv" secondAttribute="bottom" constant="10" id="5aS-AR-m5B"/>
+                            <constraint firstItem="3LO-Vg-7Dr" firstAttribute="top" secondItem="ngD-hS-vgN" secondAttribute="bottom" constant="10" id="64T-Lz-MbM"/>
+                            <constraint firstItem="I0D-XY-L5R" firstAttribute="top" secondItem="3LO-Vg-7Dr" secondAttribute="bottom" constant="10" id="832-sB-okn"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="Kw8-JA-D1M" secondAttribute="trailing" constant="10" id="951-iy-bFY"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="NAb-o9-ixz" secondAttribute="trailing" constant="10" id="9Ji-AG-wN5"/>
+                            <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="3LO-Vg-7Dr" secondAttribute="trailing" constant="10" id="A1o-xm-rhi"/>
+                            <constraint firstItem="I0D-XY-L5R" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="Aey-hL-Wz5"/>
                             <constraint firstItem="w5j-f6-eOv" firstAttribute="top" secondItem="Kw8-JA-D1M" secondAttribute="bottom" constant="10" id="FHr-sT-HUH"/>
                             <constraint firstItem="ngD-hS-vgN" firstAttribute="top" secondItem="8cJ-1w-zDg" secondAttribute="bottom" constant="10" id="Fs6-Q6-oAk"/>
+                            <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="OrW-8X-6cP" secondAttribute="trailing" constant="10" id="Lfi-n4-9IA"/>
                             <constraint firstItem="Kw8-JA-D1M" firstAttribute="top" secondItem="805-7e-Dpv" secondAttribute="bottom" constant="10" id="O0a-pi-LhQ"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="8cJ-1w-zDg" secondAttribute="trailing" constant="10" id="RW2-hk-5nl"/>
                             <constraint firstItem="NAb-o9-ixz" firstAttribute="top" secondItem="sBs-3z-X8t" secondAttribute="bottom" constant="10" id="TOA-Vg-JkL"/>
                             <constraint firstItem="sBs-3z-X8t" firstAttribute="top" secondItem="oja-FE-eEu" secondAttribute="top" constant="50" id="TUS-9j-3iy"/>
                             <constraint firstItem="8cJ-1w-zDg" firstAttribute="top" secondItem="w5j-f6-eOv" secondAttribute="bottom" constant="10" id="TmN-8Y-Ja8"/>
+                            <constraint firstItem="OrW-8X-6cP" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="TsX-Y2-HUF"/>
                             <constraint firstItem="sBs-3z-X8t" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="U4J-Ev-6GN"/>
                             <constraint firstItem="w5j-f6-eOv" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="VmW-aV-7Ny"/>
                             <constraint firstItem="ngD-hS-vgN" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="aZ4-hP-JXL"/>
@@ -457,6 +494,8 @@
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="ngD-hS-vgN" secondAttribute="trailing" constant="10" id="oKy-TB-tJv"/>
                             <constraint firstItem="w5j-f6-eOv" firstAttribute="top" secondItem="Kw8-JA-D1M" secondAttribute="bottom" constant="10" id="oTf-4W-Lh9"/>
                             <constraint firstItem="sBs-3z-X8t" firstAttribute="top" secondItem="6Hf-a7-kRp" secondAttribute="bottom" constant="10" id="pGf-Le-ZaO"/>
+                            <constraint firstItem="I0D-XY-L5R" firstAttribute="top" secondItem="3LO-Vg-7Dr" secondAttribute="bottom" constant="10" id="pTP-8r-kwk"/>
+                            <constraint firstItem="3LO-Vg-7Dr" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="pc8-DU-Hzd"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="sBs-3z-X8t" secondAttribute="trailing" constant="10" id="qgp-rg-cU5"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="w5j-f6-eOv" secondAttribute="trailing" constant="10" id="rDg-uA-DVh"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="6Hf-a7-kRp" secondAttribute="trailing" constant="10" id="rTt-M6-zdz"/>
@@ -467,6 +506,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KWv-La-5sH"/>
+                    <connections>
+                        <outlet property="categoryTextField" destination="ngD-hS-vgN" id="fKN-H4-Atq"/>
+                        <outlet property="descriptionTextField" destination="805-7e-Dpv" id="3W1-Io-WGQ"/>
+                        <outlet property="headerTextField" destination="sBs-3z-X8t" id="xZB-gF-8fq"/>
+                        <outlet property="solutionTextField" destination="w5j-f6-eOv" id="Veb-3c-cFk"/>
+                        <outlet property="tagsTextField" destination="I0D-XY-L5R" id="BEP-UM-EUI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIQ-cW-Jyy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

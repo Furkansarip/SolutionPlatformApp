@@ -21,23 +21,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var entryArray = [AllEntry]()
     var newEntryArray = [AllEntry]()
     var filteredData : [AllEntry]!
+    var mainHeader = ""
+    var mainDesc = ""
+    var mainSolution = ""
+    var mainCat = ""
+    var mainTags = ""
+    var mainUser = ""
+    var mainEntryId = ""
         override func viewDidLoad() {
 
         super.viewDidLoad()
         homeNavBar()
             APIFunctions.functions.delegate = self
-            APIFunctions.functions.fetchEntry()
             filteredData = newEntryArray
-           // print(filteredData)
             entryTableView.dataSource = self
             entryTableView.delegate = self
             searchBar.delegate = self
-           
-            
-            
-        //accessNavBar()
+            print("test \(newEntryArray)")
+            entryTableView.reloadData()
+       // accessNavBar()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        entryArray.removeAll(keepingCapacity: false)
+        newEntryArray.removeAll(keepingCapacity: false)
+        filteredData.removeAll(keepingCapacity: false)
+        entryTableView.reloadData()
+        APIFunctions.functions.fetchEntry()
+    }
+   
+    
     
   
     
@@ -60,13 +72,38 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        // let cell = entryTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let cell = UITableViewCell()
-        //if entryArray[indexPath.row].isActive == true {
-            cell.textLabel?.text = filteredData[indexPath.row].header
-      //  }
-        
+        cell.textLabel?.text = filteredData[indexPath.row].header
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        mainHeader = filteredData[indexPath.row].header
+        mainDesc = filteredData[indexPath.row].description
+        mainCat = filteredData[indexPath.row].category
+        mainTags = filteredData[indexPath.row].tags
+        mainSolution = filteredData[indexPath.row].solution
+        mainUser = filteredData[indexPath.row].userId
+        mainEntryId = filteredData[indexPath.row]._id
+        
+        performSegue(withIdentifier: "entryDetail", sender: nil)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "entryDetail"{
+            let destination = segue.destination as! DetailVC
+            destination.detailCat = mainCat
+            destination.detailDesc = mainDesc
+            destination.detailTags = mainTags
+            destination.detailHeader = mainHeader
+            destination.detailUser = mainUser
+            destination.detailSolution = mainSolution
+            destination.entryId = mainEntryId
+        }
+        
+        
+        
+    }
+    
+    //MARK: -> SearchBar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = []
         
@@ -107,9 +144,9 @@ extension ViewController : DataDelegate {
     func updateArray(newArray: String) {
         do{
             entryArray = try JSONDecoder().decode([AllEntry].self , from:newArray.data(using: .utf8)!)
-            for i in entryArray {
-                if i.isActive == true {
-                    newEntryArray.append(i)
+            for active in entryArray {
+                if active.isActive == true {
+                    newEntryArray.append(active)
                     //print(newEntryArray)
                 }
             }
