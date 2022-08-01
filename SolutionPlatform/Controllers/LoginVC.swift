@@ -7,23 +7,70 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+protocol LoginDelegate{
+    func updateUser(newUsers:String)
+}
 
+class LoginVC: UIViewController {
+    var allUserArray = [User]()
+    @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        APIFunctions.functions.loginDelegate = self
+        APIFunctions.functions.fetchUser()
+        print(allUserArray)
+        
+        
+        
+    }
+   
+    
+    @IBAction func loginButton(_ sender: Any) {
+        for users in allUserArray {
+            if mailTextField.text != "" && passwordTextField.text != ""{
+                if users.mail == mailTextField.text && users.password == passwordTextField.text{
+                    
+                    var userMail = users.mail
+                    activeUser = userMail
+                    print("Giriş Başarılı")
+                    navigationController?.popViewController(animated: true)
+                    
+                }else if mailTextField.text == "admin"{
+                    performSegue(withIdentifier: "adminPage", sender: nil)
+                }
+                else {
+                    print("Email veya şifre hatalı")
+                }
+            }
+            else {
+                print("error")
+            }
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
+   
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+
+
+
+
+extension LoginVC : LoginDelegate {
+    
+    func updateUser(newUsers: String) {
+        do{
+            allUserArray = try JSONDecoder().decode([User].self, from: newUsers.data(using: .utf8)!)
+            
+            for userData in allUserArray{
+                print(userData)
+                }
+            }
+            catch{
+            print("OF")
+        }
     }
-    */
 
 }

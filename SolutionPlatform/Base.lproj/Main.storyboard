@@ -56,7 +56,6 @@
                         <segue destination="X9k-fE-lLi" kind="show" identifier="loginPage" id="WnG-i0-bvL"/>
                         <segue destination="FgU-Rs-9BO" kind="show" identifier="entryDetail" id="xMy-ay-vyI"/>
                         <segue destination="jDO-WM-opZ" kind="show" identifier="profilePage" id="ym3-lW-a98"/>
-                        <segue destination="guN-zk-tQ2" kind="show" identifier="adminPage" id="GYk-uJ-J6k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKV-2U-QfP" sceneMemberID="firstResponder"/>
@@ -212,10 +211,10 @@
             </objects>
             <point key="canvasLocation" x="951" y="1505"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin EntryVC-->
         <scene sceneID="rfR-gw-Ppp">
             <objects>
-                <viewController id="xIE-hj-adF" sceneMemberID="viewController">
+                <viewController id="xIE-hj-adF" customClass="AdminEntryVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SFM-26-UFy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,6 +282,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FEP-Yd-XrP"/>
+                    <connections>
+                        <outlet property="catTextfield" destination="6Nj-hQ-hcq" id="tf9-bg-mVS"/>
+                        <outlet property="descTextfield" destination="8NK-hd-v2I" id="geb-je-pSZ"/>
+                        <outlet property="headerTextfield" destination="Gks-Tn-ciP" id="nvp-k6-iiC"/>
+                        <outlet property="solutionTextfield" destination="Wxz-Hv-HZj" id="ZdH-6U-Fyi"/>
+                        <outlet property="tagsTextfield" destination="elR-sI-IxS" id="CUp-ls-ygw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8f-2l-ae2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -354,6 +360,9 @@
                                 <rect key="frame" x="127" y="256" width="161" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Giriş Yap"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="X9k-fE-lLi" eventType="touchUpInside" id="Ddb-I0-85Y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H4j-xf-IPE"/>
@@ -372,7 +381,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="68C-M9-XRg"/>
                     <connections>
-                        <segue destination="guN-zk-tQ2" kind="show" identifier="adminPagev1" id="9Sv-vR-kLQ"/>
+                        <outlet property="mailTextField" destination="aL9-ht-AeA" id="dAH-Qs-FqI"/>
+                        <outlet property="passwordTextField" destination="EIO-wu-9bj" id="IQ0-Tf-Snn"/>
+                        <segue destination="guN-zk-tQ2" kind="show" identifier="adminPage" id="ZQa-9k-L8N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxc-Qe-QtL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -556,9 +567,6 @@
             <point key="canvasLocation" x="2422" y="80"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="GYk-uJ-J6k"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

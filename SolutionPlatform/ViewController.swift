@@ -9,10 +9,11 @@ import UIKit
 import Alamofire
 protocol DataDelegate{
     func updateArray(newArray : String)
+ 
         
     
 }
-
+var activeUser = ""
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     @IBOutlet weak var entryTableView: UITableView!
     
@@ -28,26 +29,56 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var mainTags = ""
     var mainUser = ""
     var mainEntryId = ""
+   
         override func viewDidLoad() {
 
         super.viewDidLoad()
-        homeNavBar()
-            APIFunctions.functions.delegate = self
-            filteredData = newEntryArray
-            entryTableView.dataSource = self
-            entryTableView.delegate = self
-            searchBar.delegate = self
-            print("test \(newEntryArray)")
-            entryTableView.reloadData()
-       // accessNavBar()
+            if activeUser == "" {
+                homeNavBar()
+                APIFunctions.functions.delegate = self
+                filteredData = newEntryArray
+                entryTableView.dataSource = self
+                entryTableView.delegate = self
+                searchBar.delegate = self
+                print("test \(newEntryArray)")
+                entryTableView.reloadData()
+            }else {
+                accessNavBar()
+                APIFunctions.functions.delegate = self
+                filteredData = newEntryArray
+                entryTableView.dataSource = self
+                entryTableView.delegate = self
+                searchBar.delegate = self
+                print("test \(newEntryArray)")
+                entryTableView.reloadData()
+                print(activeUser)
+            }
+            
+            
+            
+       
     }
     override func viewWillAppear(_ animated: Bool) {
-        entryArray.removeAll(keepingCapacity: false)
-        newEntryArray.removeAll(keepingCapacity: false)
-        filteredData.removeAll(keepingCapacity: false)
-        entryTableView.reloadData()
-        APIFunctions.functions.fetchEntry()
+        if activeUser != "" {
+            print("aktif \(activeUser)")
+            accessNavBar()
+            entryArray.removeAll(keepingCapacity: false)
+            newEntryArray.removeAll(keepingCapacity: false)
+            filteredData.removeAll(keepingCapacity: false)
+            entryTableView.reloadData()
+            APIFunctions.functions.fetchEntry()
+        }else {
+            print("testy")
+            entryArray.removeAll(keepingCapacity: false)
+            newEntryArray.removeAll(keepingCapacity: false)
+            filteredData.removeAll(keepingCapacity: false)
+            entryTableView.reloadData()
+            APIFunctions.functions.fetchEntry()
+        }
+        
+       
     }
+    
    
     
     
@@ -131,7 +162,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "registerPage", sender: nil)
     }
     @objc func loginPage(){
-        performSegue(withIdentifier: "adminPage", sender: nil)
+        performSegue(withIdentifier: "loginPage", sender: nil)
     }
     @objc func profilePage(){
         performSegue(withIdentifier: "profilePage", sender: nil)
@@ -141,6 +172,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
 
 extension ViewController : DataDelegate {
+    
+    
     func updateArray(newArray: String) {
         do{
             entryArray = try JSONDecoder().decode([AllEntry].self , from:newArray.data(using: .utf8)!)
@@ -154,7 +187,7 @@ extension ViewController : DataDelegate {
             filteredData = newEntryArray
         }
         catch{
-            print("Error")
+            print("Error Main Page")
         }
         self.entryTableView.reloadData()
         

@@ -19,8 +19,14 @@ struct AllEntry : Decodable {
     var isActive : Bool
 }
 
+struct User : Decodable {
+    var mail:String
+    var password : String
+}
+
 class APIFunctions {
     var delegate : DataDelegate?
+    var loginDelegate : LoginDelegate?
     static let functions = APIFunctions()
     func fetchEntry(){
         AF.request("http://192.168.1.34:8081/fetch").response { response in
@@ -28,6 +34,17 @@ class APIFunctions {
             print(response.data)
             let data = String(data:response.data!,encoding: .utf8)
             self.delegate?.updateArray(newArray: data!)
+            
+            
+        }
+    }
+    
+    func fetchUser(){
+        AF.request("http://192.168.1.34:8081/fetchUser").response { response in
+            
+            print(response.data)
+            let userData = String(data:response.data!,encoding: .utf8)
+            self.loginDelegate?.updateUser(newUsers: userData!)
             
             
         }

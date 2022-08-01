@@ -12,11 +12,19 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var allEntryArray = [AllEntry]()
     var falseArray = [AllEntry]()
+    var adminHeader = ""
+    var adminDesc = ""
+    var adminSolution = ""
+    var adminCat = ""
+    var adminTags = ""
+    var adminEntryId = ""
     @IBOutlet weak var falseTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIFunctions.functions.delegate = self
+       APIFunctions.functions.delegate = self
         APIFunctions.functions.fetchEntry()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action:nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Çıkış Yap", style: .plain, target: self, action:nil)
        
         falseTableView.delegate = self
         falseTableView.dataSource = self
@@ -35,7 +43,26 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cells.textLabel?.text = falseArray[indexPath.row].header
         return cells
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        adminCat = falseArray[indexPath.row].category
+        adminDesc = falseArray[indexPath.row].description
+        adminTags = falseArray[indexPath.row].tags
+        adminSolution = falseArray[indexPath.row].solution
+        adminHeader = falseArray[indexPath.row].header
+        adminEntryId = falseArray[indexPath.row]._id
+        
+        performSegue(withIdentifier: "adminApply", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! AdminEntryVC
+        destination.header = adminHeader
+        destination.solution = adminSolution
+        destination.tags = adminTags
+        destination.category = adminCat
+        destination.desc = adminDesc
+        destination.objectId = adminEntryId
+    }
     
 
 }

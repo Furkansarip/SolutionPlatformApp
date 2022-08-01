@@ -31,15 +31,20 @@ class DetailVC: UIViewController {
         descriptionTextField.text = detailDesc
         print(entryId)
         
+        
         if detailUser == "6" {
             headerTextField.isUserInteractionEnabled = true
+            tagsTextField.isUserInteractionEnabled = true
+            categoryTextField.isUserInteractionEnabled = true
+            solutionTextField.isUserInteractionEnabled = true
+            descriptionTextField.isUserInteractionEnabled = true
             
         }
         // Do any additional setup after loading the view.
     }
     
     @IBAction func updateEntry(_ sender: Any) {
-        APIFunctions.functions.updateEntry(id:entryId,header: headerTextField.text!, description: "Update", solution: "Update", tags: "Update", category: "Update")
+        APIFunctions.functions.updateEntry(id:entryId,header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, tags: tagsTextField.text!, category: categoryTextField.text!)
         
         print(entryId)
     }
