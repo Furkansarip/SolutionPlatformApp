@@ -167,6 +167,7 @@
                         <outlet property="categoryPicker" destination="uk4-su-PP3" id="3LC-EX-Pdg"/>
                         <outlet property="descriptionTextField" destination="Hln-3H-8vS" id="j7F-6J-E27"/>
                         <outlet property="headerTextField" destination="V9w-BP-chK" id="izm-gC-06h"/>
+                        <outlet property="saveButton" destination="p03-gl-rcU" id="veS-Wl-tsv"/>
                         <outlet property="solutionTextField" destination="xcq-hC-yg7" id="KXm-Wb-hFa"/>
                         <outlet property="tagsTextField" destination="4c4-12-nLN" id="XoT-vW-G3W"/>
                     </connections>
@@ -523,6 +524,7 @@
                         <outlet property="headerTextField" destination="sBs-3z-X8t" id="xZB-gF-8fq"/>
                         <outlet property="solutionTextField" destination="w5j-f6-eOv" id="Veb-3c-cFk"/>
                         <outlet property="tagsTextField" destination="I0D-XY-L5R" id="BEP-UM-EUI"/>
+                        <outlet property="updateButton" destination="OrW-8X-6cP" id="rUh-QZ-r90"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIQ-cW-Jyy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,7 +10,8 @@ import UIKit
 class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
     
-   
+    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var headerTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -23,13 +24,15 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
         categoryText = categoryData[0]
+        
+        
         // Do any additional setup after loading the view.
     }
     
 
 
     @IBAction func createEntry(_ sender: Any) {
-        APIFunctions.functions.createEntry(header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, category: categoryText, tags: tagsTextField.text!, userId: "furkan")
+        APIFunctions.functions.createEntry(header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, category: categoryText, tags: tagsTextField.text!, userId: activeUser)
         makeAlert(title: "Kayıt Oluşturuldu.", message: "Konunuz Açılmıştır!")
     }
     

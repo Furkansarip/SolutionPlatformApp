@@ -15,6 +15,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var solutionTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var updateButton: UIButton!
     var detailHeader = ""
     var detailDesc = ""
     var detailSolution = ""
@@ -29,15 +30,20 @@ class DetailVC: UIViewController {
         categoryTextField.text = detailTags
         solutionTextField.text = detailSolution
         descriptionTextField.text = detailDesc
-        print(entryId)
+       /* print(entryId)
+        print(detailUser)
+        print("active : \(activeUser)")*/
+        updateButton.isHidden = true
         
         
-        if detailUser == "6" {
+        if detailUser == activeUser {
             headerTextField.isUserInteractionEnabled = true
             tagsTextField.isUserInteractionEnabled = true
             categoryTextField.isUserInteractionEnabled = true
             solutionTextField.isUserInteractionEnabled = true
             descriptionTextField.isUserInteractionEnabled = true
+            updateButton.isHidden = false
+            
             
         }
         // Do any additional setup after loading the view.
@@ -46,7 +52,7 @@ class DetailVC: UIViewController {
     @IBAction func updateEntry(_ sender: Any) {
         APIFunctions.functions.updateEntry(id:entryId,header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, tags: tagsTextField.text!, category: categoryTextField.text!)
         
-        print(entryId)
+        //print(entryId)
     }
     
     /*
