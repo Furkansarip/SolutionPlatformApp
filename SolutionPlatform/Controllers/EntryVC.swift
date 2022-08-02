@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol CategoryDelegate {
+    func categoryList(newCategory:String)
+}
 class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
     
@@ -16,16 +18,19 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     @IBOutlet weak var headerTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var solutionTextField: UITextField!
-    var categoryData = ["Software","Hardware","Others"]
+    var categoryData = [CategoryInfo]()
+    var categoryArray = [CategoryInfo]()
     var categoryText = ""
     @IBOutlet weak var tagsTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        APIFunctions.functions.categoryDelegate = self
+        APIFunctions.functions.fetchCategory()
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
-        categoryText = categoryData[0]
         
-        
+        //categoryText = categoryData[0].categoryName
+        print(categoryArray)
         // Do any additional setup after loading the view.
     }
     
@@ -43,25 +48,36 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryData.count
+        return categoryArray.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryData[row]
+        return categoryArray[row].name
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryText = categoryData[row]
+        categoryText = categoryArray[row].name
         print(categoryText)
     }
     
 
-    //MARK: -> Alert
+  
     
-    func makeAlert(title:String,message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let okButton = UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil)
-        alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
-       
+    
+}
+extension EntryVC : CategoryDelegate {
+    func categoryList(newCategory: String) {
+        do{
+            categoryData = try JSONDecoder().decode([CategoryInfo].self , from: newCategory.data(using: .utf8)!)
+            for cat in categoryData {
+                categoryArray.append(cat)
+                print(categoryArray)
+            }
+           
+            
+        }
+        catch{
+            print("Error Category")
+        }
+        self.categoryPicker.reloadAllComponents()
         
         
     }

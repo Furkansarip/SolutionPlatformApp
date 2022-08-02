@@ -35,6 +35,7 @@ class LoginVC: UIViewController {
                     activeUser = userMail
                     CustomPopUp.popup.showAlert(title: "Giriş Başarılı", message: "Hoşgeldiniz!", type: .success)
                     navigationController?.popViewController(animated: true)
+                    break
                     
                 }else if mailTextField.text == "admin"{
                     performSegue(withIdentifier: "adminPage", sender: nil)

@@ -24,10 +24,16 @@ struct User : Decodable {
     var password : String
 }
 
+struct CategoryInfo : Decodable{
+    var _id : String
+    var name : String
+}
+
 class APIFunctions {
     var delegate : DataDelegate?
     var loginDelegate : LoginDelegate?
     var profileDelegate : ProfileDelegate?
+    var categoryDelegate : CategoryDelegate?
     static let functions = APIFunctions()
     func fetchEntry(){
         AF.request("\(url)/fetch").response { response in
@@ -46,6 +52,17 @@ class APIFunctions {
             print(response.data)
             let userData = String(data:response.data!,encoding: .utf8)
             self.loginDelegate?.updateUser(newUsers: userData!)
+            
+            
+        }
+    }
+    
+    func fetchCategory(){
+        AF.request("\(url)/fetchCategory").response { response in
+            
+            print(response.data)
+            let categoryData = String(data:response.data!,encoding: .utf8)
+            self.categoryDelegate?.categoryList(newCategory: categoryData!)
             
             
         }
