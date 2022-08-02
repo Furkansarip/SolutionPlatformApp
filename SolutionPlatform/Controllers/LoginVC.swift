@@ -41,11 +41,11 @@ class LoginVC: UIViewController {
                     break
                 }
                 else {
-                    print("Email veya şifre hatalı")
+                    CustomPopUp.popup.showAlert(title: "Giriş Başarısız", message: "Kullanıcı Adı veya Şifre Hatalı!", type: .fail)
                 }
             }
             else {
-                print("error")
+                CustomPopUp.popup.showAlert(title: "Giriş Başarısız", message: "Kullanıcı Adı veya Şifre Boş!", type: .fail)
             }
         }
     }

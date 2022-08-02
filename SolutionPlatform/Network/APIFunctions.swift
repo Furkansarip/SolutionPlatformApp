@@ -73,6 +73,7 @@ class APIFunctions {
             response in
             let entryData = String(data: response.data!, encoding: .utf8)
             response.data?.description.utf8
+            print(response.data)
         }
         
 }

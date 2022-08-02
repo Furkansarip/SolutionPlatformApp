@@ -37,6 +37,7 @@ class DetailVC: UIViewController {
         print("active : \(activeUser)")*/
         updateButton.isHidden = true
         deleteButton.isHidden = true
+        print(entryId)
         
         
         if detailUser == activeUser {
@@ -57,12 +58,15 @@ class DetailVC: UIViewController {
     
     @IBAction func updateEntry(_ sender: Any) {
         APIFunctions.functions.updateEntry(id:entryId,header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, tags: tagsTextField.text!, category: categoryTextField.text!)
+        CustomPopUp.popup.showAlert(title: "Kayıt Güncellendi!", message: "Kayıt Güncelleme işleminiz tamamlanmıştır!", type: .success)
+        navigationController?.popViewController(animated: true)
         
         //print(entryId)
     }
     
     @IBAction func deleteEntry(_ sender: Any) {
         APIFunctions.functions.deleteEntry(id: entryId)
+        CustomPopUp.popup.showAlert(title: "Kayıt Silindi!", message: "Konu veritabanından silindi!", type: .success)
         navigationController?.popViewController(animated: true)
     }
     /*

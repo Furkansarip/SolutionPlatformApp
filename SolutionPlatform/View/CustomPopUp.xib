@@ -55,7 +55,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İçerik Mesajı" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7r-C2-ZkT">
-                            <rect key="frame" x="20" y="96" width="314" height="20.5"/>
+                            <rect key="frame" x="20" y="116" width="314" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                         <constraint firstItem="d7r-C2-ZkT" firstAttribute="leading" secondItem="8F0-53-vgL" secondAttribute="leading" constant="20" id="bwp-6s-Gwh"/>
                         <constraint firstAttribute="height" constant="250" id="cn1-bP-eK3"/>
                         <constraint firstAttribute="trailing" secondItem="wX2-JB-Ijx" secondAttribute="trailing" constant="20" id="gMB-Ew-FTu"/>
-                        <constraint firstItem="d7r-C2-ZkT" firstAttribute="top" secondItem="BLR-UK-31U" secondAttribute="bottom" constant="20" id="moW-bc-grQ"/>
+                        <constraint firstItem="d7r-C2-ZkT" firstAttribute="top" secondItem="BLR-UK-31U" secondAttribute="bottom" constant="40" id="moW-bc-grQ"/>
                         <constraint firstAttribute="bottom" secondItem="wX2-JB-Ijx" secondAttribute="bottom" constant="20" id="pYU-iH-6Se"/>
                         <constraint firstAttribute="trailing" secondItem="d7r-C2-ZkT" secondAttribute="trailing" constant="20" id="trk-vR-bD0"/>
                     </constraints>

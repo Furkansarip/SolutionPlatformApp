@@ -47,6 +47,7 @@ class CustomPopUp: UIView {
             alertImg.image = UIImage(named: "success")
         case .fail:
             alertImg.image = UIImage(named: "reject")
+            alertButton.backgroundColor = .red
         }
         UIApplication.shared.keyWindow?.addSubview(parentView2)
     }

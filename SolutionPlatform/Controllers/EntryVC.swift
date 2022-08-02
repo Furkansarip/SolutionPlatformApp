@@ -33,7 +33,8 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
     @IBAction func createEntry(_ sender: Any) {
         APIFunctions.functions.createEntry(header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, category: categoryText, tags: tagsTextField.text!, userId: activeUser)
-        makeAlert(title: "Kayıt Oluşturuldu.", message: "Konunuz Açılmıştır!")
+        CustomPopUp.popup.showAlert(title: "Kayıt Oluşturuldu!", message: "Admin tarafından onaylandıktan sonra konunuz aktif hale gelecektir!", type: .success)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: -> Picker

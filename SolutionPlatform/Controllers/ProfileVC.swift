@@ -12,6 +12,12 @@ protocol ProfileDelegate{
 class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
     var headerText = ""
+    var descText = ""
+    var solutionText = ""
+    var tags = ""
+    var category = ""
+    var entryId = ""
+    var username = ""
 
     @IBOutlet weak var profileView: UITableView!
     var userAllEntry = [AllEntry]()
@@ -19,11 +25,15 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         APIFunctions.functions.profileDelegate = self
-        APIFunctions.functions.fetchProfile()
+        
         profileView.delegate = self
         profileView.dataSource = self
-        print("prof \(activeUser)")
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        singleEntry.removeAll(keepingCapacity: false)
+        APIFunctions.functions.fetchProfile()
     }
     
     
@@ -37,11 +47,19 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.text = singleEntry[indexPath.row].header
         headerText = singleEntry[indexPath.row].header
+        descText = singleEntry[indexPath.row].description
+        solutionText = singleEntry[indexPath.row].solution
+        tags = singleEntry[indexPath.row].tags
+        category = singleEntry[indexPath.row].category
+        username = singleEntry[indexPath.row].userId
+        entryId = singleEntry[indexPath.row]._id
+        print(entryId)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "profileDetail", sender: nil)
+        
         
     }
     
@@ -49,6 +67,12 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
        
         let destination = segue.destination as! DetailVC
         destination.detailHeader = headerText
+        destination.detailDesc = descText
+        destination.entryId = entryId
+        destination.detailCat = category
+        destination.detailTags = tags
+        destination.detailSolution = solutionText
+        destination.detailUser = username
         destination.detailUser = activeUser
         
     }
@@ -61,7 +85,7 @@ extension ProfileVC : ProfileDelegate{
             for userEntry in userAllEntry{
                 if userEntry.userId == activeUser{
                     singleEntry.append(userEntry)
-                    print(userEntry)
+                    //print(userEntry)
                 }
             }
                     }catch{

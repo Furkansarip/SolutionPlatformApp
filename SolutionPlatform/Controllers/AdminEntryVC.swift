@@ -40,11 +40,13 @@ class AdminEntryVC: UIViewController {
 
     @IBAction func entryApply(_ sender: Any) {
         APIFunctions.functions.applyEntry(id: objectId, header: headerTextfield.text!, description: descTextfield.text!, solution: solutionTextfield.text!, tags: tagsTextfield.text!, category: catTextfield.text!,isActive: true)
+        CustomPopUp.popup.showAlert(title: "Kayıt Onaylandı", message: "Kullanıcı kaydı aktif duruma geçti!", type: .success)
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func deleteEntry(_ sender: Any) {
         APIFunctions.functions.deleteEntry(id: objectId)
+        CustomPopUp.popup.showAlert(title: "Kayıt Silindi!", message: "Entry veritabanından silindi!", type: .success)
         navigationController?.popViewController(animated: true)
     }
     
