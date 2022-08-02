@@ -24,6 +24,8 @@
 		74C08C3428973078007DCE6C /* AdminEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C08C3328973078007DCE6C /* AdminEntryVC.swift */; };
 		74C08C3728991AFD007DCE6C /* CustomPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C08C3628991AFD007DCE6C /* CustomPopUp.swift */; };
 		74C08C3928991B0C007DCE6C /* CustomPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C08C3828991B0C007DCE6C /* CustomPopUp.xib */; };
+		74C08C3B289945E0007DCE6C /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C08C3A289945E0007DCE6C /* AddCategory.swift */; };
+		74C08C3D289945F1007DCE6C /* AddCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C08C3C289945F1007DCE6C /* AddCategory.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		74C08C3328973078007DCE6C /* AdminEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEntryVC.swift; sourceTree = "<group>"; };
 		74C08C3628991AFD007DCE6C /* CustomPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUp.swift; sourceTree = "<group>"; };
 		74C08C3828991B0C007DCE6C /* CustomPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPopUp.xib; sourceTree = "<group>"; };
+		74C08C3A289945E0007DCE6C /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
+		74C08C3C289945F1007DCE6C /* AddCategory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCategory.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			children = (
 				74C08C3628991AFD007DCE6C /* CustomPopUp.swift */,
 				74C08C3828991B0C007DCE6C /* CustomPopUp.xib */,
+				74C08C3A289945E0007DCE6C /* AddCategory.swift */,
+				74C08C3C289945F1007DCE6C /* AddCategory.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 				740E227A2892B42300A2FF1C /* LaunchScreen.storyboard in Resources */,
 				740E22772892B42300A2FF1C /* Assets.xcassets in Resources */,
 				740E22752892B42200A2FF1C /* Main.storyboard in Resources */,
+				74C08C3D289945F1007DCE6C /* AddCategory.xib in Resources */,
 				74C08C3928991B0C007DCE6C /* CustomPopUp.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C08C3B289945E0007DCE6C /* AddCategory.swift in Sources */,
 				740E22722892B42200A2FF1C /* ViewController.swift in Sources */,
 				740E226E2892B42200A2FF1C /* AppDelegate.swift in Sources */,
 				740E228A2892B4F100A2FF1C /* ProfileVC.swift in Sources */,

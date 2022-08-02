@@ -68,6 +68,12 @@ class APIFunctions {
         }
     }
     
+    func createCategory(name:String){
+        AF.request("\(url)/createCategory",method: .post,encoding: URLEncoding.httpBody,headers: ["name":name]).responseJSON{
+            response in
+        }
+    }
+    
     func createEntry(header:String,description:String,solution:String,category:String,tags:String,userId:String){
         AF.request("\(url)/createEntry",method: .post,encoding: URLEncoding.httpBody,headers: ["header":header,"description":description,"solution":solution,"category":category,"tags":tags,"userId":userId]).responseJSON {
             response in

@@ -76,7 +76,7 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     @objc func addCategory(){
-        performSegue(withIdentifier: "addCategory", sender: nil)
+        AddCategory.category.showCategory()
     }
     
 

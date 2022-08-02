@@ -16,7 +16,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     @IBOutlet weak var headerTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var solutionTextField: UITextField!
-    var categoryData = ["Yazılım","Donanım","Diğer"]
+    var categoryData = ["Software","Hardware","Others"]
     var categoryText = ""
     @IBOutlet weak var tagsTextField: UITextField!
     override func viewDidLoad() {

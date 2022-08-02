@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCategory" customModule="SolutionPlatform" customModuleProvider="target">
+            <connections>
+                <outlet property="addCategory" destination="Xc6-of-Dwj" id="VQC-5Y-H9e"/>
+                <outlet property="categoryName" destination="pHw-6f-yad" id="gRq-fM-SN8"/>
+                <outlet property="categoryView" destination="iN0-l3-epB" id="D8d-Ob-ZZk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zh-Ha-xo4">
+                    <rect key="frame" x="30" y="323" width="354" height="250"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHw-6f-yad">
+                            <rect key="frame" x="20" y="111" width="314" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Adı" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="576-hh-k29">
+                            <rect key="frame" x="30" y="50" width="294" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc6-of-Dwj">
+                            <rect key="frame" x="10" y="185" width="334" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Ekle"/>
+                            <connections>
+                                <action selector="addCategoryButton:" destination="-1" eventType="touchUpInside" id="VAm-IY-taS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="pHw-6f-yad" secondAttribute="trailing" constant="20" id="0ab-ME-tOd"/>
+                        <constraint firstAttribute="height" constant="250" id="D82-Ed-XCZ"/>
+                        <constraint firstItem="pHw-6f-yad" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="20" id="DVq-dF-S2x"/>
+                        <constraint firstAttribute="trailing" secondItem="576-hh-k29" secondAttribute="trailing" constant="30" id="RWc-s7-VTd"/>
+                        <constraint firstItem="576-hh-k29" firstAttribute="top" secondItem="0zh-Ha-xo4" secondAttribute="top" constant="50" id="Yji-je-kbo"/>
+                        <constraint firstAttribute="trailing" secondItem="Xc6-of-Dwj" secondAttribute="trailing" constant="10" id="aRt-bu-mkS"/>
+                        <constraint firstItem="Xc6-of-Dwj" firstAttribute="top" secondItem="pHw-6f-yad" secondAttribute="bottom" constant="40" id="c11-eF-NaA"/>
+                        <constraint firstItem="pHw-6f-yad" firstAttribute="top" secondItem="576-hh-k29" secondAttribute="bottom" constant="40" id="pdx-EQ-O8n"/>
+                        <constraint firstItem="576-hh-k29" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="30" id="ro8-AU-tSR"/>
+                        <constraint firstItem="Xc6-of-Dwj" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="10" id="v9w-82-GTi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0zh-Ha-xo4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="mZC-gP-g35"/>
+                <constraint firstItem="0zh-Ha-xo4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oM0-hJ-USO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0zh-Ha-xo4" secondAttribute="trailing" constant="30" id="pqP-oV-KkD"/>
+                <constraint firstItem="0zh-Ha-xo4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="xfm-nO-Grk"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="84"/>
+        </view>
+    </objects>
+</document>
