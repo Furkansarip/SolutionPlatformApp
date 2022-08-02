@@ -27,7 +27,7 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         headerTextField.text = detailHeader
         tagsTextField.text = detailTags
-        categoryTextField.text = detailTags
+        categoryTextField.text = detailCat
         solutionTextField.text = detailSolution
         descriptionTextField.text = detailDesc
        /* print(entryId)

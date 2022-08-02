@@ -9,13 +9,18 @@ import UIKit
 
 class RegisterVC: UIViewController {
 
+    @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func createUser(_ sender: Any) {
+        APIFunctions.functions.createUser(mail: mailTextField.text!, password: passwordTextField.text!)
+    }
+    
     /*
     // MARK: - Navigation
 

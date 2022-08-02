@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-
+var url = "http://10.215.0.49:8081"
 struct AllEntry : Decodable {
     var _id : String
     var userId : String
@@ -27,9 +27,10 @@ struct User : Decodable {
 class APIFunctions {
     var delegate : DataDelegate?
     var loginDelegate : LoginDelegate?
+    var profileDelegate : ProfileDelegate?
     static let functions = APIFunctions()
     func fetchEntry(){
-        AF.request("http://192.168.1.34:8081/fetch").response { response in
+        AF.request("\(url)/fetch").response { response in
             
             print(response.data)
             let data = String(data:response.data!,encoding: .utf8)
@@ -40,7 +41,7 @@ class APIFunctions {
     }
     
     func fetchUser(){
-        AF.request("http://192.168.1.34:8081/fetchUser").response { response in
+        AF.request("\(url)/fetchUser").response { response in
             
             print(response.data)
             let userData = String(data:response.data!,encoding: .utf8)
@@ -50,8 +51,25 @@ class APIFunctions {
         }
     }
     
+    func fetchProfile(){
+        AF.request("\(url)/fetch").response { response in
+            
+            print(response.data)
+            let profileEntry = String(data:response.data!,encoding: .utf8)
+            self.profileDelegate?.updateEntryHistory(entryHistory: profileEntry!)
+            
+            
+        }
+    }
+    
+    func createUser(mail:String,password:String){
+        AF.request("\(url)/createUser",method: .post,encoding: URLEncoding.httpBody,headers: ["mail":mail,"password":password]).responseJSON{
+            response in
+        }
+    }
+    
     func createEntry(header:String,description:String,solution:String,category:String,tags:String,userId:String){
-        AF.request("http://192.168.1.34:8081/createEntry",method: .post,encoding: URLEncoding.httpBody,headers: ["header":header,"description":description,"solution":solution,"category":category,"tags":tags,"userId":userId]).responseJSON {
+        AF.request("\(url)/createEntry",method: .post,encoding: URLEncoding.httpBody,headers: ["header":header,"description":description,"solution":solution,"category":category,"tags":tags,"userId":userId]).responseJSON {
             response in
             let entryData = String(data: response.data!, encoding: .utf8)
             response.data?.description.utf8
@@ -60,7 +78,14 @@ class APIFunctions {
 }
     
     func updateEntry(id:String,header:String,description:String,solution:String,tags:String,category:String){
-        AF.request("http://192.168.1.34:8081/update",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id,"header":header,"description":description,"solution":solution,"category":category,"tags":tags]).responseJSON {
+        AF.request("\(url)/update",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id,"header":header,"description":description,"solution":solution,"category":category,"tags":tags]).responseJSON {
+            response in
+        }
+        
+    }
+    
+    func deleteEntry(id:String){
+        AF.request("\(url)/delete",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id]).responseJSON {
             response in
         }
         

@@ -34,7 +34,7 @@ class LoginVC: UIViewController {
                     var userMail = users.mail
                     activeUser = userMail
                     print("Giriş Başarılı")
-                    navigationController?.popViewController(animated: true)
+                    //navigationController?.popViewController(animated: true)
                     
                 }else if mailTextField.text == "admin"{
                     performSegue(withIdentifier: "adminPage", sender: nil)

@@ -77,8 +77,8 @@ extension AdminVC : DataDelegate{
             for falseData in allEntryArray{
                 if falseData.isActive == false{
                     falseArray.append(falseData)
-                    print(falseData._id)
-                    print(falseData.tags)
+                    //print(falseData._id)
+                    //print(falseData.tags)
                 }
             }
                     }catch{
