@@ -114,7 +114,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         mainSolution = filteredData[indexPath.row].solution
         mainUser = filteredData[indexPath.row].userId
         mainEntryId = filteredData[indexPath.row]._id
-        
         performSegue(withIdentifier: "entryDetail", sender: nil)
     }
     
@@ -180,7 +179,7 @@ extension ViewController : DataDelegate {
             for active in entryArray {
                 if active.isActive == true {
                     newEntryArray.append(active)
-                    //print(newEntryArray)
+                    print(newEntryArray)
                 }
             }
             //print(entryArray)

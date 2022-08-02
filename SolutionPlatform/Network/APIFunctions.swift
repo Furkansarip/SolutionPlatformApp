@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-var url = "http://10.215.0.49:8081"
+var url = "http://192.168.1.67:8081/"
 struct AllEntry : Decodable {
     var _id : String
     var userId : String
@@ -92,11 +92,11 @@ class APIFunctions {
     }
     
     func createEntry(header:String,description:String,solution:String,category:String,tags:String,userId:String){
+        
         AF.request("\(url)/createEntry",method: .post,encoding: URLEncoding.httpBody,headers: ["header":header,"description":description,"solution":solution,"category":category,"tags":tags,"userId":userId]).responseJSON {
             response in
-            let entryData = String(data: response.data!, encoding: .utf8)
-            response.data?.description.utf8
-            print(response.data)
+            
+          
         }
         
 }

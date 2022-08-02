@@ -28,7 +28,8 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
         APIFunctions.functions.fetchCategory()
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
-        
+        var utf8text = tagsTextField.text?.utf8
+        print(utf8text)
         //categoryText = categoryData[0].categoryName
         print(categoryArray)
         // Do any additional setup after loading the view.
@@ -69,7 +70,7 @@ extension EntryVC : CategoryDelegate {
             categoryData = try JSONDecoder().decode([CategoryInfo].self , from: newCategory.data(using: .utf8)!)
             for cat in categoryData {
                 categoryArray.append(cat)
-                print(categoryArray)
+                
             }
            
             
