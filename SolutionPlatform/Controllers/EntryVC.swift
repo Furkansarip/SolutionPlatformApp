@@ -28,8 +28,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
         APIFunctions.functions.fetchCategory()
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
-        var utf8text = tagsTextField.text?.utf8
-        print(utf8text)
+        
         //categoryText = categoryData[0].categoryName
         print(categoryArray)
         // Do any additional setup after loading the view.
@@ -53,7 +52,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categoryArray[row].name
-    }
+    }   
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categoryText = categoryArray[row].name
         print(categoryText)
@@ -70,7 +69,7 @@ extension EntryVC : CategoryDelegate {
             categoryData = try JSONDecoder().decode([CategoryInfo].self , from: newCategory.data(using: .utf8)!)
             for cat in categoryData {
                 categoryArray.append(cat)
-                
+                print(categoryArray)
             }
            
             

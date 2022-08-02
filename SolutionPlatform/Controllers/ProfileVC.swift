@@ -46,6 +46,12 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = singleEntry[indexPath.row].header
+        
+        print("profile: - > \(entryId)")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         headerText = singleEntry[indexPath.row].header
         descText = singleEntry[indexPath.row].description
         solutionText = singleEntry[indexPath.row].solution
@@ -53,11 +59,6 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         category = singleEntry[indexPath.row].category
         username = singleEntry[indexPath.row].userId
         entryId = singleEntry[indexPath.row]._id
-        print(entryId)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "profileDetail", sender: nil)
         
         
@@ -85,7 +86,7 @@ extension ProfileVC : ProfileDelegate{
             for userEntry in userAllEntry{
                 if userEntry.userId == activeUser{
                     singleEntry.append(userEntry)
-                    //print(userEntry)
+                    print()
                 }
             }
                     }catch{

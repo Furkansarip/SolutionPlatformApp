@@ -37,7 +37,7 @@ class DetailVC: UIViewController {
         print("active : \(activeUser)")*/
         updateButton.isHidden = true
         deleteButton.isHidden = true
-        print(entryId)
+        print("detail: -> \(entryId)")
         
         
         if detailUser == activeUser {

@@ -40,7 +40,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 entryTableView.dataSource = self
                 entryTableView.delegate = self
                 searchBar.delegate = self
-                print("test \(newEntryArray)")
+                //print("test \(newEntryArray)")
                 entryTableView.reloadData()
             }else {
                 accessNavBar()
@@ -49,7 +49,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 entryTableView.dataSource = self
                 entryTableView.delegate = self
                 searchBar.delegate = self
-                print("test \(newEntryArray)")
+                //print("test \(newEntryArray)")
                 entryTableView.reloadData()
                 print(activeUser)
             }
@@ -68,7 +68,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             entryTableView.reloadData()
             APIFunctions.functions.fetchEntry()
         }else {
-            print("testy")
+            //print("testy")
             entryArray.removeAll(keepingCapacity: false)
             newEntryArray.removeAll(keepingCapacity: false)
             filteredData.removeAll(keepingCapacity: false)
@@ -114,6 +114,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         mainSolution = filteredData[indexPath.row].solution
         mainUser = filteredData[indexPath.row].userId
         mainEntryId = filteredData[indexPath.row]._id
+        
         performSegue(withIdentifier: "entryDetail", sender: nil)
     }
     
@@ -176,10 +177,11 @@ extension ViewController : DataDelegate {
     func updateArray(newArray: String) {
         do{
             entryArray = try JSONDecoder().decode([AllEntry].self , from:newArray.data(using: .utf8)!)
+           // print(entryArray)
             for active in entryArray {
                 if active.isActive == true {
                     newEntryArray.append(active)
-                    print(newEntryArray)
+                    //print(newEntryArray)
                 }
             }
             //print(entryArray)
