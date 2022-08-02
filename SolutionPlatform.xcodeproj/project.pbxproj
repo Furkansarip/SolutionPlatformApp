@@ -22,6 +22,8 @@
 		7497DB212892BAA8001E4E77 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7497DB202892BAA8001E4E77 /* Alamofire */; };
 		7497DB252892BB87001E4E77 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7497DB242892BB87001E4E77 /* APIFunctions.swift */; };
 		74C08C3428973078007DCE6C /* AdminEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C08C3328973078007DCE6C /* AdminEntryVC.swift */; };
+		74C08C3728991AFD007DCE6C /* CustomPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C08C3628991AFD007DCE6C /* CustomPopUp.swift */; };
+		74C08C3928991B0C007DCE6C /* CustomPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C08C3828991B0C007DCE6C /* CustomPopUp.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		740E22862892B4F100A2FF1C /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		7497DB242892BB87001E4E77 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 		74C08C3328973078007DCE6C /* AdminEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEntryVC.swift; sourceTree = "<group>"; };
+		74C08C3628991AFD007DCE6C /* CustomPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUp.swift; sourceTree = "<group>"; };
+		74C08C3828991B0C007DCE6C /* CustomPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPopUp.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		740E226C2892B42200A2FF1C /* SolutionPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				74C08C3528991AC6007DCE6C /* View */,
 				7497DB232892BB74001E4E77 /* Network */,
 				7497DB222892BB51001E4E77 /* Controllers */,
 				740E226D2892B42200A2FF1C /* AppDelegate.swift */,
@@ -107,6 +112,15 @@
 				7497DB242892BB87001E4E77 /* APIFunctions.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		74C08C3528991AC6007DCE6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74C08C3628991AFD007DCE6C /* CustomPopUp.swift */,
+				74C08C3828991B0C007DCE6C /* CustomPopUp.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +190,7 @@
 				740E227A2892B42300A2FF1C /* LaunchScreen.storyboard in Resources */,
 				740E22772892B42300A2FF1C /* Assets.xcassets in Resources */,
 				740E22752892B42200A2FF1C /* Main.storyboard in Resources */,
+				74C08C3928991B0C007DCE6C /* CustomPopUp.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +208,7 @@
 				7497DB252892BB87001E4E77 /* APIFunctions.swift in Sources */,
 				740E22872892B4F100A2FF1C /* LoginVC.swift in Sources */,
 				740E228B2892B4F100A2FF1C /* DetailVC.swift in Sources */,
+				74C08C3728991AFD007DCE6C /* CustomPopUp.swift in Sources */,
 				740E228C2892B4F100A2FF1C /* RegisterVC.swift in Sources */,
 				740E22892892B4F100A2FF1C /* AdminVC.swift in Sources */,
 				740E22702892B42200A2FF1C /* SceneDelegate.swift in Sources */,

@@ -220,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciT-te-LUO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="1505"/>
+            <point key="canvasLocation" x="858" y="1509"/>
         </scene>
         <!--Admin EntryVC-->
         <scene sceneID="rfR-gw-Ppp">
@@ -264,6 +264,18 @@
                                 <rect key="frame" x="10" y="532" width="394" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Onayla"/>
+                                <connections>
+                                    <action selector="entryApply:" destination="xIE-hj-adF" eventType="touchUpInside" id="bA9-Pz-kYp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DE-o2-Dsg">
+                                <rect key="frame" x="10" y="593" width="394" height="31"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sil"/>
+                                <connections>
+                                    <action selector="deleteEntry:" destination="xIE-hj-adF" eventType="touchUpInside" id="zrW-CQ-Rob"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kx4-2A-7yJ"/>
@@ -280,11 +292,14 @@
                             <constraint firstItem="elR-sI-IxS" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="9jI-Zv-1Ky"/>
                             <constraint firstItem="8NK-hd-v2I" firstAttribute="top" secondItem="Gks-Tn-ciP" secondAttribute="bottom" constant="30" id="KGF-FC-rB3"/>
                             <constraint firstItem="elR-sI-IxS" firstAttribute="top" secondItem="6Nj-hQ-hcq" secondAttribute="bottom" constant="30" id="Noc-bI-rNV"/>
+                            <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="0DE-o2-Dsg" secondAttribute="trailing" constant="10" id="OFe-Yg-ltZ"/>
                             <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="Gks-Tn-ciP" secondAttribute="trailing" constant="30" id="R60-v1-QJM"/>
                             <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="Jv7-I5-xxJ" secondAttribute="trailing" constant="10" id="RDw-Cb-wBY"/>
+                            <constraint firstItem="0DE-o2-Dsg" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="10" id="SY8-yU-2a1"/>
                             <constraint firstItem="Jv7-I5-xxJ" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="10" id="TBh-qV-NYa"/>
                             <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="8NK-hd-v2I" secondAttribute="trailing" constant="30" id="UMZ-6Z-8nc"/>
                             <constraint firstItem="Wxz-Hv-HZj" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="e3I-im-Kqf"/>
+                            <constraint firstItem="0DE-o2-Dsg" firstAttribute="top" secondItem="Jv7-I5-xxJ" secondAttribute="bottom" constant="30" id="fcj-6D-euR"/>
                             <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="RjG-qB-Q05" secondAttribute="trailing" constant="30" id="iZv-jh-RcS"/>
                             <constraint firstItem="Gks-Tn-ciP" firstAttribute="leading" secondItem="Kx4-2A-7yJ" secondAttribute="leading" constant="30" id="if5-F4-US1"/>
                             <constraint firstItem="Kx4-2A-7yJ" firstAttribute="trailing" secondItem="Wxz-Hv-HZj" secondAttribute="trailing" constant="30" id="jxL-TV-heI"/>
@@ -299,6 +314,7 @@
                         <outlet property="headerTextfield" destination="Gks-Tn-ciP" id="nvp-k6-iiC"/>
                         <outlet property="solutionTextfield" destination="Wxz-Hv-HZj" id="ZdH-6U-Fyi"/>
                         <outlet property="tagsTextfield" destination="elR-sI-IxS" id="CUp-ls-ygw"/>
+                        <outlet property="userTextField" destination="RjG-qB-Q05" id="Bve-X3-LCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8f-2l-ae2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -408,7 +424,7 @@
             </objects>
             <point key="canvasLocation" x="858" y="792"/>
         </scene>
-        <!--DetailVC-->
+        <!--Kayıt Detay-->
         <scene sceneID="85j-Zc-oSd">
             <objects>
                 <viewController id="FgU-Rs-9BO" customClass="DetailVC" customModule="SolutionPlatform" customModuleProvider="target" sceneMemberID="viewController">
@@ -486,6 +502,15 @@
                                     <action selector="updateEntry:" destination="FgU-Rs-9BO" eventType="touchUpInside" id="mgE-Qs-wb7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-bH-xNe">
+                                <rect key="frame" x="10" y="635" width="394" height="31"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sil"/>
+                                <connections>
+                                    <action selector="deleteEntry:" destination="FgU-Rs-9BO" eventType="touchUpInside" id="bQc-XK-JiF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oja-FE-eEu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -494,6 +519,7 @@
                             <constraint firstItem="6Hf-a7-kRp" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="0Bq-mr-8J5"/>
                             <constraint firstItem="OrW-8X-6cP" firstAttribute="top" secondItem="I0D-XY-L5R" secondAttribute="bottom" constant="50" id="1iS-eL-qQb"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="I0D-XY-L5R" secondAttribute="trailing" constant="10" id="1pl-wD-wEi"/>
+                            <constraint firstItem="UAU-bH-xNe" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="5HJ-do-Faf"/>
                             <constraint firstItem="8cJ-1w-zDg" firstAttribute="top" secondItem="w5j-f6-eOv" secondAttribute="bottom" constant="10" id="5aS-AR-m5B"/>
                             <constraint firstItem="3LO-Vg-7Dr" firstAttribute="top" secondItem="ngD-hS-vgN" secondAttribute="bottom" constant="10" id="64T-Lz-MbM"/>
                             <constraint firstItem="I0D-XY-L5R" firstAttribute="top" secondItem="3LO-Vg-7Dr" secondAttribute="bottom" constant="10" id="832-sB-okn"/>
@@ -512,6 +538,7 @@
                             <constraint firstItem="OrW-8X-6cP" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="TsX-Y2-HUF"/>
                             <constraint firstItem="sBs-3z-X8t" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="U4J-Ev-6GN"/>
                             <constraint firstItem="w5j-f6-eOv" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="VmW-aV-7Ny"/>
+                            <constraint firstItem="UAU-bH-xNe" firstAttribute="top" secondItem="OrW-8X-6cP" secondAttribute="bottom" constant="30" id="XQH-lD-Uxo"/>
                             <constraint firstItem="ngD-hS-vgN" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="aZ4-hP-JXL"/>
                             <constraint firstItem="805-7e-Dpv" firstAttribute="top" secondItem="NAb-o9-ixz" secondAttribute="bottom" constant="10" id="dAe-x3-UyP"/>
                             <constraint firstItem="Kw8-JA-D1M" firstAttribute="top" secondItem="805-7e-Dpv" secondAttribute="bottom" constant="10" id="dyL-cD-9ZH"/>
@@ -519,6 +546,7 @@
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="sBs-3z-X8t" secondAttribute="trailing" constant="10" id="h1U-S5-4ff"/>
                             <constraint firstItem="805-7e-Dpv" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="hft-7A-kRn"/>
                             <constraint firstItem="8cJ-1w-zDg" firstAttribute="leading" secondItem="oja-FE-eEu" secondAttribute="leading" constant="10" id="ixW-9f-jf9"/>
+                            <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="UAU-bH-xNe" secondAttribute="trailing" constant="10" id="myF-tl-3kt"/>
                             <constraint firstItem="ngD-hS-vgN" firstAttribute="top" secondItem="8cJ-1w-zDg" secondAttribute="bottom" constant="10" id="nPe-M3-jxF"/>
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="ngD-hS-vgN" secondAttribute="trailing" constant="10" id="oKy-TB-tJv"/>
                             <constraint firstItem="w5j-f6-eOv" firstAttribute="top" secondItem="Kw8-JA-D1M" secondAttribute="bottom" constant="10" id="oTf-4W-Lh9"/>
@@ -534,9 +562,10 @@
                             <constraint firstItem="oja-FE-eEu" firstAttribute="trailing" secondItem="805-7e-Dpv" secondAttribute="trailing" constant="10" id="uLi-PR-b0P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KWv-La-5sH"/>
+                    <navigationItem key="navigationItem" title="Kayıt Detay" id="KWv-La-5sH"/>
                     <connections>
                         <outlet property="categoryTextField" destination="ngD-hS-vgN" id="fKN-H4-Atq"/>
+                        <outlet property="deleteButton" destination="UAU-bH-xNe" id="gcl-TN-21q"/>
                         <outlet property="descriptionTextField" destination="805-7e-Dpv" id="3W1-Io-WGQ"/>
                         <outlet property="headerTextField" destination="sBs-3z-X8t" id="xZB-gF-8fq"/>
                         <outlet property="solutionTextField" destination="w5j-f6-eOv" id="Veb-3c-cFk"/>
@@ -582,6 +611,7 @@
                     <navigationItem key="navigationItem" id="rSd-Lo-Obw"/>
                     <connections>
                         <outlet property="profileView" destination="TQO-pZ-uAY" id="Fsl-k0-Clc"/>
+                        <segue destination="FgU-Rs-9BO" kind="show" identifier="profileDetail" id="d5N-pB-x5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gf-h2-ba4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -589,12 +619,18 @@
             <point key="canvasLocation" x="2422" y="80"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="d5N-pB-x5y"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

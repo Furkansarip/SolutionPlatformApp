@@ -16,6 +16,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var solutionTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     var detailHeader = ""
     var detailDesc = ""
     var detailSolution = ""
@@ -25,6 +26,7 @@ class DetailVC: UIViewController {
     var entryId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "hello"
         headerTextField.text = detailHeader
         tagsTextField.text = detailTags
         categoryTextField.text = detailCat
@@ -34,6 +36,7 @@ class DetailVC: UIViewController {
         print(detailUser)
         print("active : \(activeUser)")*/
         updateButton.isHidden = true
+        deleteButton.isHidden = true
         
         
         if detailUser == activeUser {
@@ -43,9 +46,12 @@ class DetailVC: UIViewController {
             solutionTextField.isUserInteractionEnabled = true
             descriptionTextField.isUserInteractionEnabled = true
             updateButton.isHidden = false
+            deleteButton.isHidden = false
+            
             
             
         }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -55,6 +61,10 @@ class DetailVC: UIViewController {
         //print(entryId)
     }
     
+    @IBAction func deleteEntry(_ sender: Any) {
+        APIFunctions.functions.deleteEntry(id: entryId)
+        navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

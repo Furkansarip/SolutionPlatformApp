@@ -11,7 +11,7 @@ protocol ProfileDelegate{
 }
 class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
-    
+    var headerText = ""
 
     @IBOutlet weak var profileView: UITableView!
     var userAllEntry = [AllEntry]()
@@ -22,6 +22,7 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         APIFunctions.functions.fetchProfile()
         profileView.delegate = self
         profileView.dataSource = self
+        print("prof \(activeUser)")
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +36,21 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = singleEntry[indexPath.row].header
+        headerText = singleEntry[indexPath.row].header
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "profileDetail", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        let destination = segue.destination as! DetailVC
+        destination.detailHeader = headerText
+        destination.detailUser = activeUser
+        
     }
 }
 extension ProfileVC : ProfileDelegate{

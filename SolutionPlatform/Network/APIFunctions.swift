@@ -84,6 +84,13 @@ class APIFunctions {
         
     }
     
+    func applyEntry(id:String,header:String,description:String,solution:String,tags:String,category:String,isActive:Bool){
+        AF.request("\(url)/update",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id,"header":header,"description":description,"solution":solution,"category":category,"tags":tags,"isActive" : "true"]).responseJSON {
+            response in
+        }
+        
+    }
+    
     func deleteEntry(id:String){
         AF.request("\(url)/delete",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id]).responseJSON {
             response in

@@ -15,12 +15,14 @@ class AdminEntryVC: UIViewController {
     var category = ""
     var tags = ""
     var objectId = ""
+    var user = ""
 
     @IBOutlet weak var headerTextfield: UITextField!
     @IBOutlet weak var descTextfield: UITextField!
     @IBOutlet weak var solutionTextfield: UITextField!
     @IBOutlet weak var catTextfield: UITextField!
     @IBOutlet weak var tagsTextfield: UITextField!
+    @IBOutlet weak var userTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,18 +32,21 @@ class AdminEntryVC: UIViewController {
         solutionTextfield.text = solution
         catTextfield.text = category
         tagsTextfield.text = tags
+        userTextField.text = user
         print(objectId)
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func entryApply(_ sender: Any) {
+        APIFunctions.functions.applyEntry(id: objectId, header: headerTextfield.text!, description: descTextfield.text!, solution: solutionTextfield.text!, tags: tagsTextfield.text!, category: catTextfield.text!,isActive: true)
+        navigationController?.popViewController(animated: true)
     }
-    */
-
+    
+    @IBAction func deleteEntry(_ sender: Any) {
+        APIFunctions.functions.deleteEntry(id: objectId)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }

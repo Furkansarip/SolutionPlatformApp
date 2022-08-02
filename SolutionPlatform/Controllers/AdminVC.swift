@@ -18,17 +18,23 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var adminCat = ""
     var adminTags = ""
     var adminEntryId = ""
+    var adminUser = ""
     @IBOutlet weak var falseTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
        APIFunctions.functions.delegate = self
-        APIFunctions.functions.fetchEntry()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action:nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Çıkış Yap", style: .plain, target: self, action:nil)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kategori Ekle", style: .plain, target: self, action:#selector(addCategory))
+        
        
         falseTableView.delegate = self
         falseTableView.dataSource = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        falseArray.removeAll(keepingCapacity: false)
+        APIFunctions.functions.fetchEntry()
     }
     
     
@@ -50,18 +56,27 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         adminSolution = falseArray[indexPath.row].solution
         adminHeader = falseArray[indexPath.row].header
         adminEntryId = falseArray[indexPath.row]._id
+        adminUser = falseArray[indexPath.row].userId
         
         performSegue(withIdentifier: "adminApply", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! AdminEntryVC
-        destination.header = adminHeader
-        destination.solution = adminSolution
-        destination.tags = adminTags
-        destination.category = adminCat
-        destination.desc = adminDesc
-        destination.objectId = adminEntryId
+        if segue.identifier == "adminApply"{
+            let destination = segue.destination as! AdminEntryVC
+            destination.header = adminHeader
+            destination.solution = adminSolution
+            destination.tags = adminTags
+            destination.category = adminCat
+            destination.desc = adminDesc
+            destination.objectId = adminEntryId
+            destination.user = adminUser
+        }
+        
+    }
+    
+    @objc func addCategory(){
+        performSegue(withIdentifier: "addCategory", sender: nil)
     }
     
 
@@ -87,3 +102,5 @@ extension AdminVC : DataDelegate{
         self.falseTableView.reloadData()
     }
 }
+
+

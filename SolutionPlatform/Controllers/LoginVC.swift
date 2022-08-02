@@ -33,11 +33,12 @@ class LoginVC: UIViewController {
                     
                     var userMail = users.mail
                     activeUser = userMail
-                    print("Giriş Başarılı")
-                    //navigationController?.popViewController(animated: true)
+                    CustomPopUp.popup.showAlert(title: "Giriş Başarılı", message: "Hoşgeldiniz!", type: .success)
+                    navigationController?.popViewController(animated: true)
                     
                 }else if mailTextField.text == "admin"{
                     performSegue(withIdentifier: "adminPage", sender: nil)
+                    break
                 }
                 else {
                     print("Email veya şifre hatalı")
