@@ -33,6 +33,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         override func viewDidLoad() {
 
         super.viewDidLoad()
+            navigationController?.navigationBar.tintColor = .systemIndigo
             if activeUser == "" {
                 homeNavBar()
                 APIFunctions.functions.delegate = self

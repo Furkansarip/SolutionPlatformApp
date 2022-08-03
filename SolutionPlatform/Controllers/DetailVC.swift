@@ -11,12 +11,15 @@ class DetailVC: UIViewController {
     
     @IBOutlet weak var headerTextField: UITextField!
     
+    @IBOutlet weak var adminDelete: UIButton!
+    @IBOutlet weak var activeSwitch: UISwitch!
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var solutionTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var activeText: UILabel!
     var detailHeader = ""
     var detailDesc = ""
     var detailSolution = ""
@@ -24,9 +27,16 @@ class DetailVC: UIViewController {
     var detailTags = ""
     var detailUser = ""
     var entryId = ""
+    var detailStatus : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backButtonTitle = "hello"
+        
+        if detailStatus == true {
+            activeSwitch.isOn = true
+        }
+        else {
+            activeSwitch.isOn = false
+        }
         headerTextField.text = detailHeader
         tagsTextField.text = detailTags
         categoryTextField.text = detailCat
@@ -38,6 +48,7 @@ class DetailVC: UIViewController {
         updateButton.isHidden = true
         deleteButton.isHidden = true
         print("detail: -> \(entryId)")
+        navigationItem.title = detailUser
         
         
         if detailUser == activeUser {
@@ -50,7 +61,15 @@ class DetailVC: UIViewController {
             deleteButton.isHidden = false
             
             
-            
+        }else if activeUser == "admin" {
+            headerTextField.isUserInteractionEnabled = true
+            tagsTextField.isUserInteractionEnabled = true
+            categoryTextField.isUserInteractionEnabled = true
+            solutionTextField.isUserInteractionEnabled = true
+            descriptionTextField.isUserInteractionEnabled = true
+            activeSwitch.isHidden = false
+            adminDelete.isHidden = false
+            activeText.isHidden = false
         }
         
         // Do any additional setup after loading the view.
@@ -69,14 +88,23 @@ class DetailVC: UIViewController {
         CustomPopUp.popup.showAlert(title: "Kayıt Silindi!", message: "Konu veritabanından silindi!", type: .success)
         navigationController?.popViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    @IBAction func deleteAdminEntry(_ sender: Any) {
+        APIFunctions.functions.deleteEntry(id: entryId)
+        CustomPopUp.popup.showAlert(title: "Kayıt Silindi!", message: "Konu veritabanından silindi!", type: .success)
+        navigationController?.popViewController(animated: true)
     }
-    */
-
+    
+    
+    @IBAction func activeStatus(_ sender: Any) {
+        if activeSwitch.isOn {
+            APIFunctions.functions.applyEntry(id: entryId, header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, tags: tagsTextField.text!, category: categoryTextField.text!, isActive: true)
+            CustomPopUp.popup.showAlert(title: "Kayıt Onaylandı", message: "Kullanıcı kaydı aktif duruma geçti!", type: .success)
+        }
+        else if activeSwitch.isOn == false {
+            APIFunctions.functions.falseStatus(id: entryId, header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, tags: tagsTextField.text!, category: categoryTextField.text!, isActive: false)
+            CustomPopUp.popup.showAlert(title: "Durum Değişti", message: "Kullanıcı kaydı pasif duruma geçti!", type: .success)
+            print(activeSwitch.isOn)
+        }
+    }
 }

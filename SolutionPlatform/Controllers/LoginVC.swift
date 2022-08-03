@@ -13,17 +13,30 @@ protocol LoginDelegate{
 
 class LoginVC: UIViewController {
     var allUserArray = [User]()
+    @IBOutlet weak var loginButtonSettings: UIButton!
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let username = UIImage(systemName: "person.fill")
+        let lock = UIImage(systemName: "lock.fill")
+        loginImage.layer.cornerRadius =  loginImage.frame.height/2
         APIFunctions.functions.loginDelegate = self
         APIFunctions.functions.fetchUser()
         print(allUserArray)
+        loginButtonSettings.layer.cornerRadius = 50
+        loginButtonSettings.backgroundColor = .systemIndigo
+        loginButtonSettings.titleLabel?.textColor = .white
         
+        Helper.helper.addLeftImage(textField: mailTextField, image: username!)
+        Helper.helper.addLeftImage(textField: passwordTextField, image: lock!)
         
         
     }
+    
+    
    
     
     @IBAction func loginButton(_ sender: Any) {
@@ -47,6 +60,7 @@ class LoginVC: UIViewController {
             }
             else {
                 CustomPopUp.popup.showAlert(title: "Giriş Başarısız", message: "Kullanıcı Adı veya Şifre Boş!", type: .fail)
+                
             }
         }
     }

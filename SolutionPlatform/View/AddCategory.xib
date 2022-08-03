@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,38 +23,57 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zh-Ha-xo4">
                     <rect key="frame" x="30" y="323" width="354" height="250"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHw-6f-yad">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kategori Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHw-6f-yad">
                             <rect key="frame" x="20" y="111" width="314" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Adı" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="576-hh-k29">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori Ekle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="576-hh-k29">
                             <rect key="frame" x="30" y="50" width="294" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc6-of-Dwj">
-                            <rect key="frame" x="10" y="185" width="334" height="31"/>
+                            <rect key="frame" x="194" y="175" width="110" height="31"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="110" id="L5g-rr-lXy"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Ekle"/>
                             <connections>
                                 <action selector="addCategoryButton:" destination="-1" eventType="touchUpInside" id="VAm-IY-taS"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yT0-Oc-qLZ">
+                            <rect key="frame" x="50" y="175" width="110" height="31"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="110" id="g8o-rh-SBs"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="İptal"/>
+                            <connections>
+                                <action selector="cancelCategory:" destination="-1" eventType="touchUpInside" id="So2-E8-Dqn"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="pHw-6f-yad" secondAttribute="trailing" constant="20" id="0ab-ME-tOd"/>
+                        <constraint firstItem="Xc6-of-Dwj" firstAttribute="top" secondItem="pHw-6f-yad" secondAttribute="bottom" constant="30" id="0jI-V2-xvQ"/>
                         <constraint firstAttribute="height" constant="250" id="D82-Ed-XCZ"/>
                         <constraint firstItem="pHw-6f-yad" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="20" id="DVq-dF-S2x"/>
+                        <constraint firstItem="yT0-Oc-qLZ" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="50" id="PoS-lp-k0V"/>
                         <constraint firstAttribute="trailing" secondItem="576-hh-k29" secondAttribute="trailing" constant="30" id="RWc-s7-VTd"/>
                         <constraint firstItem="576-hh-k29" firstAttribute="top" secondItem="0zh-Ha-xo4" secondAttribute="top" constant="50" id="Yji-je-kbo"/>
-                        <constraint firstAttribute="trailing" secondItem="Xc6-of-Dwj" secondAttribute="trailing" constant="10" id="aRt-bu-mkS"/>
-                        <constraint firstItem="Xc6-of-Dwj" firstAttribute="top" secondItem="pHw-6f-yad" secondAttribute="bottom" constant="40" id="c11-eF-NaA"/>
+                        <constraint firstItem="Xc6-of-Dwj" firstAttribute="leading" secondItem="yT0-Oc-qLZ" secondAttribute="trailing" constant="34" id="arf-7h-wlF"/>
+                        <constraint firstItem="yT0-Oc-qLZ" firstAttribute="top" secondItem="pHw-6f-yad" secondAttribute="bottom" constant="30" id="awO-Ya-xUy"/>
                         <constraint firstItem="pHw-6f-yad" firstAttribute="top" secondItem="576-hh-k29" secondAttribute="bottom" constant="40" id="pdx-EQ-O8n"/>
                         <constraint firstItem="576-hh-k29" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="30" id="ro8-AU-tSR"/>
-                        <constraint firstItem="Xc6-of-Dwj" firstAttribute="leading" secondItem="0zh-Ha-xo4" secondAttribute="leading" constant="10" id="v9w-82-GTi"/>
                     </constraints>
                 </view>
             </subviews>
@@ -65,7 +85,12 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0zh-Ha-xo4" secondAttribute="trailing" constant="30" id="pqP-oV-KkD"/>
                 <constraint firstItem="0zh-Ha-xo4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="xfm-nO-Grk"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="84"/>
+            <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

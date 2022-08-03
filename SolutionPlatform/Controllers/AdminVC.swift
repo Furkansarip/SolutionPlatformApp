@@ -26,6 +26,8 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kategori Ekle", style: .plain, target: self, action:#selector(addCategory))
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Tüm Konular", style: .plain, target: self, action: #selector(panel))
+        
        
         falseTableView.delegate = self
         falseTableView.dataSource = self
@@ -79,7 +81,9 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         AddCategory.category.showCategory()
     }
     
-
+    @objc func panel(){
+        performSegue(withIdentifier: "adminPanel", sender: nil)
+    }
 }
 
 

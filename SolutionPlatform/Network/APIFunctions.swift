@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-var url = "http://192.168.1.67:8081"
+var url = "http://10.215.0.49:8081"
 struct AllEntry : Decodable {
     var _id : String
     var userId : String
@@ -108,6 +108,12 @@ class APIFunctions {
     
     func applyEntry(id:String,header:String,description:String,solution:String,tags:String,category:String,isActive:Bool){
         AF.request("\(url)/update",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id,"header":header,"description":description,"solution":solution,"category":category,"tags":tags,"isActive" : "true"]).responseJSON {
+            response in
+        }
+        
+    }
+    func falseStatus(id:String,header:String,description:String,solution:String,tags:String,category:String,isActive:Bool){
+        AF.request("\(url)/update",method: .post,encoding:URLEncoding.httpBody,headers: ["id":id,"header":header,"description":description,"solution":solution,"category":category,"tags":tags,"isActive" : "false"]).responseJSON {
             response in
         }
         

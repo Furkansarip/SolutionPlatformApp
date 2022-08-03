@@ -12,6 +12,7 @@ class AddCategory: UIView {
     @IBOutlet weak var categoryName: UITextField!
     @IBOutlet var categoryView: UIView!
     
+   
     @IBOutlet weak var addCategory: UIButton!
     
     override init (frame:CGRect){
@@ -34,6 +35,10 @@ class AddCategory: UIView {
         UIApplication.shared.keyWindow?.addSubview(categoryView)
     }
     
+    func closeCategory(){
+        categoryView.removeFromSuperview()
+    }
+    
     
     @IBAction func addCategoryButton(_ sender: Any) {
         if categoryName.text != ""{
@@ -47,4 +52,10 @@ class AddCategory: UIView {
         }
         
     }
+    
+    @IBAction func cancelCategory(_ sender: Any) {
+        closeCategory()
+    }
+    
+    
 }

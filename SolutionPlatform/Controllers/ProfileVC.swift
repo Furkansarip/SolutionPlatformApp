@@ -25,6 +25,7 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         APIFunctions.functions.profileDelegate = self
+        navigationItem.title = activeUser
         
         profileView.delegate = self
         profileView.dataSource = self

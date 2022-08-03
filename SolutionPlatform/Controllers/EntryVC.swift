@@ -24,6 +24,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     @IBOutlet weak var tagsTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.layer.cornerRadius = 30
         APIFunctions.functions.categoryDelegate = self
         APIFunctions.functions.fetchCategory()
         categoryPicker.dataSource = self
@@ -56,6 +57,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categoryText = categoryArray[row].name
         print(categoryText)
+        print("hello")
     }
     
 
