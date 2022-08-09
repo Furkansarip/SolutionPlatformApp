@@ -81,7 +81,7 @@ extension AllEntrysVC : DataDelegate{
                 for active in newEntryArray {
                     
                     allEntry.append(active)
-                        print(allEntry)
+                        //print(allEntry)
                     
                 }
                 //print(entryArray)

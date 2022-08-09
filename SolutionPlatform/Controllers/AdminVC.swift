@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol AdminDelegate {
+    func adminFalseData(newFalseData : String)
+}
 class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
@@ -22,7 +24,7 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var falseTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       APIFunctions.functions.delegate = self
+       APIFunctions.functions.adminDelegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kategori Ekle", style: .plain, target: self, action:#selector(addCategory))//Kategori Ekleme
         
@@ -35,9 +37,13 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+    
         falseArray.removeAll(keepingCapacity: false)
-        APIFunctions.functions.fetchEntry()
+        APIFunctions.functions.falseDataAdmin()
+       
+        print(falseArray)
     }
+    
     
     
     
@@ -52,6 +58,7 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return cells
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // print(falseArray[indexPath.row].category)
         adminCat = falseArray[indexPath.row].category
         adminDesc = falseArray[indexPath.row].description
         adminTags = falseArray[indexPath.row].tags
@@ -88,14 +95,17 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 
 //MARK: -> Extension
-extension AdminVC : DataDelegate{
-    func updateArray(newArray: String) {
+extension AdminVC : AdminDelegate{
+    func adminFalseData(newFalseData: String) {
         do{
-            allEntryArray = try JSONDecoder().decode([AllEntry].self, from: newArray.data(using: .utf8)!)
+            //allEntryArray.removeAll(keepingCapacity: false)
+            //falseArray.removeAll(keepingCapacity: false)
+            allEntryArray = try JSONDecoder().decode([AllEntry].self, from: newFalseData.data(using: .utf8)!)
             
             for falseData in allEntryArray{
                 if falseData.isActive == false{
                     falseArray.append(falseData)
+                    print("false array: \(falseArray)")
                 }
             }
                     }catch{
@@ -103,6 +113,8 @@ extension AdminVC : DataDelegate{
         }
         self.falseTableView.reloadData()
     }
+    
+
 }
 
 

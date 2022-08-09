@@ -33,6 +33,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         override func viewDidLoad() {
 
         super.viewDidLoad()
+            searchBar.autocapitalizationType = .none
             navigationController?.navigationBar.tintColor = .systemIndigo
             if activeUser == "" { // Eğer aktif user var ise NavBar değişiyor.
                 homeNavBar()

@@ -34,6 +34,7 @@ class APIFunctions {
     var loginDelegate : LoginDelegate?
     var profileDelegate : ProfileDelegate?
     var categoryDelegate : CategoryDelegate?
+    var adminDelegate : AdminDelegate?
     static let functions = APIFunctions()
     func fetchEntry(){//Tüm entryleri sunucudan çekiyor.
         AF.request("\(url)/fetch").response { response in
@@ -49,7 +50,7 @@ class APIFunctions {
     func fetchUser(){//Kayıtlı kullanıcıları çekiyor.
         AF.request("\(url)/fetchUser").response { response in
             
-            print(response.data)
+            //print(response.data)
             let userData = String(data:response.data!,encoding: .utf8)
             self.loginDelegate?.updateUser(newUsers: userData!)
             
@@ -60,7 +61,7 @@ class APIFunctions {
     func fetchCategory(){
         AF.request("\(url)/fetchCategory").response { response in
             
-            print(response.data)
+            //print(response.data)
             let categoryData = String(data:response.data!,encoding: .utf8)
             self.categoryDelegate?.categoryList(newCategory: categoryData!)
             
@@ -76,6 +77,13 @@ class APIFunctions {
             self.profileDelegate?.updateEntryHistory(entryHistory: profileEntry!)
             
             
+        }
+    }
+    
+    func falseDataAdmin(){
+        AF.request("\(url)/fetch").response { response in
+            let falseAdminData = String(data:response.data!,encoding: .utf8)
+            self.adminDelegate?.adminFalseData(newFalseData: falseAdminData!)
         }
     }
     
