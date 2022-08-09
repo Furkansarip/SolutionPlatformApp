@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-var url = "http://10.215.0.49:8081"
+var url = "http://10.215.0.48:8081"
 struct AllEntry : Decodable {
     var _id : String
     var userId : String
@@ -35,7 +35,7 @@ class APIFunctions {
     var profileDelegate : ProfileDelegate?
     var categoryDelegate : CategoryDelegate?
     static let functions = APIFunctions()
-    func fetchEntry(){
+    func fetchEntry(){//Tüm entryleri sunucudan çekiyor.
         AF.request("\(url)/fetch").response { response in
             
             print(response.data)
@@ -46,7 +46,7 @@ class APIFunctions {
         }
     }
     
-    func fetchUser(){
+    func fetchUser(){//Kayıtlı kullanıcıları çekiyor.
         AF.request("\(url)/fetchUser").response { response in
             
             print(response.data)
@@ -68,7 +68,7 @@ class APIFunctions {
         }
     }
     
-    func fetchProfile(){
+    func fetchProfile(){//Giriş yapmış kullanıcı için geçmiş konularını çekiyor.
         AF.request("\(url)/fetch").response { response in
             
             print(response.data)

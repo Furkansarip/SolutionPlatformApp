@@ -37,7 +37,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
 
 
-    @IBAction func createEntry(_ sender: Any) {
+    @IBAction func createEntry(_ sender: Any) {// oluşturulan entryi sunucuya post ediyor
         APIFunctions.functions.createEntry(header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, category: categoryText, tags: tagsTextField.text!, userId: activeUser)
         CustomPopUp.popup.showAlert(title: "Kayıt Oluşturuldu!", message: "Admin tarafından onaylandıktan sonra konunuz aktif hale gelecektir!", type: .success)
         navigationController?.popViewController(animated: true)
@@ -66,7 +66,7 @@ class EntryVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
 }
 extension EntryVC : CategoryDelegate {
-    func categoryList(newCategory: String) {
+    func categoryList(newCategory: String) {//Category listesini pickerView'a çekiyor
         do{
             categoryData = try JSONDecoder().decode([CategoryInfo].self , from: newCategory.data(using: .utf8)!)
             for cat in categoryData {

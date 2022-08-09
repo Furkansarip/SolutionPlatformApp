@@ -31,7 +31,7 @@ class AllEntrysVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     override func viewWillAppear(_ animated: Bool) {
         allEntry.removeAll(keepingCapacity: false)
-        APIFunctions.functions.fetchEntry()
+        APIFunctions.functions.fetchEntry()//Admin sayfası olduğu için aktif durumu fark etmeksizin tüm listeyi alıyoruz.
         
     }
     

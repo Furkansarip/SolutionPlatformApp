@@ -61,7 +61,7 @@ class DetailVC: UIViewController {
             deleteButton.isHidden = false
             
             
-        }else if activeUser == "admin" {
+        }else if activeUser == "admin" { // Eğer admin ise burdaki butonlar aktif oluyor ve işlem ona göre yapılıyor.
             headerTextField.isUserInteractionEnabled = true
             tagsTextField.isUserInteractionEnabled = true
             categoryTextField.isUserInteractionEnabled = true
@@ -96,7 +96,7 @@ class DetailVC: UIViewController {
     }
     
     
-    @IBAction func activeStatus(_ sender: Any) {
+    @IBAction func activeStatus(_ sender: Any) { // Switch durumuna göre açılan konunun durumunu ayarlayabiliyoruz.
         if activeSwitch.isOn {
             APIFunctions.functions.applyEntry(id: entryId, header: headerTextField.text!, description: descriptionTextField.text!, solution: solutionTextField.text!, tags: tagsTextField.text!, category: categoryTextField.text!, isActive: true)
             CustomPopUp.popup.showAlert(title: "Kayıt Onaylandı", message: "Kullanıcı kaydı aktif duruma geçti!", type: .success)

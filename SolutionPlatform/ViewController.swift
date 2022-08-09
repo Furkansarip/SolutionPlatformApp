@@ -34,7 +34,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
         super.viewDidLoad()
             navigationController?.navigationBar.tintColor = .systemIndigo
-            if activeUser == "" {
+            if activeUser == "" { // Eğer aktif user var ise NavBar değişiyor.
                 homeNavBar()
                 APIFunctions.functions.delegate = self
                 filteredData = newEntryArray
@@ -107,7 +107,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.textLabel?.text = filteredData[indexPath.row].header
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {// Seçili verileri entry detail ekranına göndermek için atama yapıyoruz.
         mainHeader = filteredData[indexPath.row].header
         mainDesc = filteredData[indexPath.row].description
         mainCat = filteredData[indexPath.row].category
@@ -119,7 +119,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "entryDetail", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {//Veri Gitmeden önce bulunan ekranda hazırık yapılıyor.
         if segue.identifier == "entryDetail"{
             let destination = segue.destination as! DetailVC
             destination.detailCat = mainCat
@@ -136,7 +136,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     //MARK: -> SearchBar
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {//Tüm verilerin olduğu arrayi searchText içine yazılan veriyle kıyaslayıp yeni bir array oluşturuyoruz.
         filteredData = []
         
         if searchText == "" {
@@ -172,26 +172,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
 
 
-extension ViewController : DataDelegate {
+extension ViewController : DataDelegate {// API isteği
     
     
     func updateArray(newArray: String) {
         do{
-            entryArray = try JSONDecoder().decode([AllEntry].self , from:newArray.data(using: .utf8)!)
-           // print(entryArray)
-            for active in entryArray {
+            entryArray = try JSONDecoder().decode([AllEntry].self , from:newArray.data(using: .utf8)!) // apiden gelen veri new arraye yazılıyor new arrayden entryArraye atama yapıyoruz.
+         
+            for active in entryArray {//Gelen verinin durumu aktif ise ana ekranda gösteriliyor yoksa Admin ekranına düşüyor.
                 if active.isActive == true {
                     newEntryArray.append(active)
-                    //print(newEntryArray)
+                   
                 }
             }
-            //print(entryArray)
+           
             filteredData = newEntryArray
         }
         catch{
             print("Error Main Page")
         }
-        self.entryTableView.reloadData()
+        self.entryTableView.reloadData()//Veri çekme işleminden sonra TableView yeniliyoruz.
         
     }
 }

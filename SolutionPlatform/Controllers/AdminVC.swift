@@ -24,9 +24,9 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
        APIFunctions.functions.delegate = self
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kategori Ekle", style: .plain, target: self, action:#selector(addCategory))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kategori Ekle", style: .plain, target: self, action:#selector(addCategory))//Kategori Ekleme
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Tüm Konular", style: .plain, target: self, action: #selector(panel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Tüm Konular", style: .plain, target: self, action: #selector(panel))//Panel
         
        
         falseTableView.delegate = self
@@ -78,7 +78,7 @@ class AdminVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     @objc func addCategory(){
-        AddCategory.category.showCategory()
+        AddCategory.category.showCategory()//AddCategory View'ı çağırıyoruz.
     }
     
     @objc func panel(){
@@ -96,8 +96,6 @@ extension AdminVC : DataDelegate{
             for falseData in allEntryArray{
                 if falseData.isActive == false{
                     falseArray.append(falseData)
-                    //print(falseData._id)
-                    //print(falseData.tags)
                 }
             }
                     }catch{
