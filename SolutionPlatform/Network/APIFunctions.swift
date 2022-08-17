@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-var url = "http://10.215.0.48:8081"
+var url = "http://192.168.1.54:8081"
 struct AllEntry : Decodable {
     var _id : String
     var userId : String
